@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/components/moment-open/moment-open.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1702885387371,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1702885421182,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,8 @@\n     const contRef = useRef<HTMLDivElement>(null);\r\n     useScreen(contRef, ['momentOpen']);\r\n     return (\r\n         <div className={classNames(styles.root, className, styles.moment)} ref={contRef}>\r\n-\r\n             <Xrj />\r\n         </div>\r\n     );\r\n };\r\n"
+                },
+                {
+                    "date": 1702885456807,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import classNames from 'classnames';\r\n-import styles from './moment.module.scss';\r\n+import styles from './moment-open.module.scss';\r\n // @ts-ignore\r\n import Xrj from '../xrjs/Xrj';\r\n import { screenS } from '../../App';\r\n import { useGSAP } from '@gsap/react';\r\n"
+                },
+                {
+                    "date": 1702919308095,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,16 +8,16 @@\n import useScreen from '../../services/use-screen-gsap';\r\n \r\n export interface MomentOpenProps {\r\n     className?: string;\r\n-    photoIndex?: string;\r\n+    photoIndex?: number;\r\n }\r\n \r\n-export const MomentOpen = ({ className, photoIndex = '01' }: MomentOpenProps) => {\r\n+export const MomentOpen = ({ className, photoIndex = 2 }: MomentOpenProps) => {\r\n     const contRef = useRef<HTMLDivElement>(null);\r\n     useScreen(contRef, ['momentOpen']);\r\n     return (\r\n         <div className={classNames(styles.root, className, styles.moment)} ref={contRef}>\r\n-            <Xrj />\r\n+            <Xrj photoIndex={photoIndex}/>\r\n         </div>\r\n     );\r\n };\r\n"
+                }
+            ],
+            "date": 1702885387371,
+            "name": "Commit-0",
+            "content": "import classNames from 'classnames';\r\nimport styles from './moment.module.scss';\r\n// @ts-ignore\r\nimport Xrj from '../xrjs/Xrj';\r\nimport { screenS } from '../../App';\r\nimport { useGSAP } from '@gsap/react';\r\nimport { useRef } from 'react';\r\nimport useScreen from '../../services/use-screen-gsap';\r\n\r\nexport interface MomentOpenProps {\r\n    className?: string;\r\n    photoIndex?: string;\r\n}\r\n\r\nexport const MomentOpen = ({ className, photoIndex = '01' }: MomentOpenProps) => {\r\n    const contRef = useRef<HTMLDivElement>(null);\r\n    useScreen(contRef, ['momentOpen']);\r\n    return (\r\n        <div className={classNames(styles.root, className, styles.moment)} ref={contRef}>\r\n\r\n            <Xrj />\r\n        </div>\r\n    );\r\n};\r\n"
+        }
+    ]
+}

@@ -11,12 +11,16 @@ import { signal, effect } from '@preact/signals-react';
 import { mediaDb, metaDb } from './db';
 import { MomentList } from './components/moment-list/moment-list';
 import { Gallery } from './components/gallery/gallery';
+import { MomentOpen } from './components/moment-open/moment-open';
 
 // export const state = signal({ screen: 'home' });
 // export const nameS = signal(metaDb.names);
 // console.log(Object.keys(mediaDb)[0]);
 
 export const screenS = signal('home');
+export const typeS = signal('');
+export const pathS = signal('');
+export const muteS = signal(true);
 export const photoIndexS = signal(2);
 function getState() {
     // return 'asdfkj';
@@ -24,9 +28,9 @@ function getState() {
 
 // export const state = signal({ screen: 'home' });
 
-effect(() => {
-    console.log(screenS.value);
-});
+// effect(() => {
+//     console.log(screenS.value);
+// });
 function App() {
     const [count, setCount] = useState(0);
 
@@ -37,6 +41,7 @@ function App() {
             <Gallery />
             <Footer />
             <MomentList />
+            <MomentOpen />
         </div>
     );
 }

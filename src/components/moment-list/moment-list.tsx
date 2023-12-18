@@ -9,12 +9,12 @@ import Lenis from '@studio-freight/lenis';
 import { Moment } from '../moment/moment';
 import { MomentListInfo } from '../moment-list-info/moment-list-info';
 import { Bg } from '../bg/bg';
-import { mediaDb, metaDb } from '../../db';
+import { mediaDb, metaDb, favDb } from '../../db';
 import { screenS } from '../../App';
 import { effect } from '@preact/signals-react';
 import useScreen from '../../services/use-screen-gsap';
 
-Object.keys(mediaDb)[0];
+// Object.keys(mediaDb)[0];
 
 gsap.registerPlugin(ScrollTrigger, Flip);
 
@@ -31,40 +31,6 @@ export const MomentList = ({ className }: MomentListProps) => {
     const stTl = useRef<GSAPTween>();
 
     useScreen(contRef, ['moments']);
-    // useGSAP(
-    //     () => {
-    //         const active = screenS.value === 'moments';
-    //         gsap.fromTo(
-    //             contRef.current,
-    //             { opacity: active ? 0 : 1 },
-    //             {
-    //                 opacity: active ? 1 : 0,
-    //             }
-    //         );
-    //     },
-    //     { dependencies: [screenS.value], scope: contRef }
-    // );
-    // effect(() => {
-    //     if (screenS.value === 'moments') {
-    //         useGSAP(
-    //             () => {
-    //                 gsap.to(contRef.current, {
-    //                     opacity: 1,
-    //                 });
-    //             },
-    //             { scope: contRef }
-    //         );
-    //     } else {
-    //         useGSAP(
-    //             () => {
-    //                 gsap.to(contRef.current, {
-    //                     opacity: 0,
-    //                 });
-    //             },
-    //             { scope: contRef }
-    //         );
-    //     }
-    // });
 
     useEffect(() => {
         lenis.current = new Lenis();
@@ -106,11 +72,13 @@ export const MomentList = ({ className }: MomentListProps) => {
 
         const state = Flip.getState('#m0');
         document.querySelector('#m0')?.classList.add('moment-open');
+        screenS.value = 'momentOpen';
         Flip.from(state, {
             targets: '.moment-open',
             duration: 1,
+
             onComplete() {
-                console.log('flipped');
+                document.querySelector('#m0')?.classList.remove('moment-open');
             },
         });
         // gsap.to('#m0 canvas', { width: '100vw', height: '100vh', duration: 0.5 });
@@ -128,7 +96,7 @@ export const MomentList = ({ className }: MomentListProps) => {
             ref={contRef}
         >
             <div className={styles['moment-list__list']}>
-                {[...Array(4)].map((moment, index) => (
+                {favDb.map((moment, index) => (
                     <div
                         key={index}
                         className={styles['moment-list__moment-wrap']}
@@ -140,7 +108,7 @@ export const MomentList = ({ className }: MomentListProps) => {
                         <div className={classNames(styles['moment-list__info-wrap'], 'thumbMask3')}>
                             <MomentListInfo key={index} photoIndex={'0' + (index + 1)} />
                         </div>
-                        <Moment photoIndex={'0' + (index + 1)} className="list__moment" />
+                        <Moment photoIndex={index + 1} className="list__moment" />
                     </div>
                 ))}
             </div>

@@ -14,6 +14,9 @@ export interface GalleryListOpenProps {
 export const GalleryListOpen = ({ className }: GalleryListOpenProps) => {
     const contRef = useRef(null);
     useScreen(contRef, ['galleryList']);
+    function handleMoment() {
+        screenS.value = 'momentOpen';
+    }
     return (
         <div className={styles.root} ref={contRef}>
             <div className={styles['gallery-list-open__top-nav']}>
@@ -43,7 +46,12 @@ export const GalleryListOpen = ({ className }: GalleryListOpenProps) => {
             </div>
             <div className={styles['gallery-list-open__list']}>
                 {[...Array(6)].map((stack, index) => (
-                    <GalleryListOpenItem key={index} index={index} photoIndex={index} />
+                    <GalleryListOpenItem
+                        key={index}
+                        index={index}
+                        photoIndex={index}
+                        handle={handleMoment}
+                    />
                 ))}
             </div>
             <div className={styles['gallery-list-open__bullet-wrap']}>

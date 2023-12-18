@@ -6,12 +6,14 @@ export interface GalleryListOpenItemProps {
     className?: string;
     photoIndex: number;
     index: number;
+    handle?: React.MouseEventHandler;
 }
 
 export const GalleryListOpenItem = ({
     className,
     index = 0,
     photoIndex,
+    handle,
 }: GalleryListOpenItemProps) => {
     const maskClass = ['item-tl', 'item-tm', 'item-tr', 'item-bl', 'item-bm', 'item-br'];
 
@@ -19,7 +21,7 @@ export const GalleryListOpenItem = ({
     // console.log(className);
 
     return (
-        <div className={classNames(styles.root)}>
+        <div className={classNames(styles.root)} onClick={handle}>
             <svg className="mask-svg">
                 <clipPath id="maskTopLeft" clipPathUnits="objectBoundingBox">
                     <path d="M0.984,1 C0.993,1,1,0.993,1,0.981 V0.105 C1,0.094,0.993,0.085,0.984,0.084 C0.595,0.064,0.251,0.031,0.018,0.002 C0.008,0.001,0,0.011,0,0.023 V0.963 C0,0.971,0.003,0.977,0.009,0.979 C0.077,0.997,0.474,1,0.984,1"></path>

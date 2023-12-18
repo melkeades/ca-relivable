@@ -5,11 +5,13 @@ import { useThree } from '@react-three/fiber';
 // import Hls from 'hls.js'
 import * as THREE from 'three';
 import { useTexture, useVideoTexture } from '@react-three/drei';
-import { photoIndexS } from '../../App';
+import { photoIndexS, typeS, pathS, muteS } from '../../App';
+// import { muteS } from '../../components/footer/footer';
+import { signal, effect } from '@preact/signals-react';
 
 const sel = (e) => document.querySelector(e);
 const pause$ = sel('.btn--pause');
-const vol$ = sel('.btn--vol');
+const vol$ = sel('#volume');
 
 function ImageTexture({ mediaFile, texture, setTexture }) {
   const _texture = useTexture(mediaFile);
@@ -56,20 +58,26 @@ function VideoTexture({
     />
   );
 }
-export default function Dome({ photoIndex, setPhotoIndex, mediaPath, mediaDb }) {
+export default function Dome({ photoIndex = 2, setPhotoIndex, mediaPath, mediaDb }) {
+  // console.log(parseInt(photoIndex.photoIndex))
+  // console.log(photoIndex);
   // const { gl } = useThree()
   const [texture, setTexture] = useState();
-  const [prevIndex, setPrevIndex] = useState(photoIndexS.value);
+  // const [prevIndex, setPrevIndex] = useState(photoIndexS.value);
   const [videoPaused, setVideoPaused] = useState(false);
   const [videoMuted, setVideoMuted] = useState(true);
   const [mediaType, setMediaType] = useState(mediaDb[photoIndexS.value].type);
   const [mediaFile, setMediaFile] = useState(mediaPath + mediaDb[photoIndexS.value].src);
+  // const [mediaType, setMediaType] = useState(mediaDb[photoIndex].type);
+  // const [mediaFile, setMediaFile] = useState(mediaPath + mediaDb[photoIndex].src);
 
   useEffect(() => {
     texture?.pause();
     texture?.remove();
     setMediaType(mediaDb[photoIndexS.value].type);
+    // typeS.value = mediaDb[photoIndexS.value].type;
     setMediaFile(mediaPath + mediaDb[photoIndexS.value].src);
+    // pathS.value = mediaPath + mediaDb[photoIndexS.value].src;
   }, [photoIndexS.value]);
 
   useEffect(() => {
@@ -78,23 +86,23 @@ export default function Dome({ photoIndex, setPhotoIndex, mediaPath, mediaDb }) 
     }
   }, [photoIndexS.value, texture, videoPaused, mediaType]);
 
-  useEffect(() => {
-    // function handler() {
-    //   // console.log('handler')
-    //   if (mediaType === 'video') {
-    //     if (videoPaused) {
-    //       pause$.style.opacity = 1;
-    //       texture.play();
-    //     } else {
-    //       pause$.style.opacity = 0.3;
-    //       texture.pause();
-    //     }
-    //     setVideoPaused(!videoPaused);
-    //   }
-    // }
-    // pause$.addEventListener('click', handler)
-    // return () => pause$.removeEventListener('click', handler);
-  }, [videoPaused, texture, mediaType]);
+  // useEffect(() => {
+  // function handler() {
+  //   // console.log('handler')
+  //   if (mediaType === 'video') {
+  //     if (videoPaused) {
+  //       pause$.style.opacity = 1;
+  //       texture.play();
+  //     } else {
+  //       pause$.style.opacity = 0.3;
+  //       texture.pause();
+  //     }
+  //     setVideoPaused(!videoPaused);
+  //   }
+  // }
+  // pause$.addEventListener('click', handler)
+  // return () => pause$.removeEventListener('click', handler);
+  // }, [videoPaused, texture, mediaType]);
 
   useEffect(() => {
     if (!videoMuted && mediaType === 'video') {
@@ -107,22 +115,22 @@ export default function Dome({ photoIndex, setPhotoIndex, mediaPath, mediaDb }) 
   }, [photoIndexS.value, texture, videoMuted, mediaType]);
 
   useEffect(() => {
-    // function handler() {
-    //   if (mediaType === 'video') {
-    //     if (!videoMuted) {
-    //       vol$.style.opacity = 1;
-    //       texture.muted = true;
-    //       console.log('muted');
-    //     } else {
-    //       vol$.style.opacity = 0.3;
-    //       texture.muted = false;
-    //       console.log('unmuted');
-    //     }
-    //     setVideoMuted(!videoMuted);
-    //   }
-    // }
-    // vol$.addEventListener('click', handler);
-    // return () => vol$.removeEventListener('click', handler);
+    function handler() {
+      if (mediaType === 'video') {
+        if (!videoMuted) {
+          // vol$.style.opacity = 1;
+          texture.muted = true;
+          console.log('muted');
+        } else {
+          // vol$.style.opacity = 0.3;
+          texture.muted = false;
+          console.log('unmuted');
+        }
+        setVideoMuted(!videoMuted);
+      }
+    }
+    // vol$?.addEventListener('click', handler);
+    // return () => vol$?.removeEventListener('click', handler);
   }, [videoMuted, texture, mediaType]);
 
   return (

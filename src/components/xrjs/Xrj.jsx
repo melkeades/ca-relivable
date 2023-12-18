@@ -22,13 +22,13 @@ import { photoIndexS } from '../../App';
 const sel = (e) => document.querySelector(e);
 
 const mediaPath = '../360/';
-const mediaDb = [
+export const mediaDb = [
   { type: 'video', src: 'v1.mp4', thumb: 'v1.jpg', name: 'Moment Name a' },
   { type: 'video', src: 'v2.mp4', thumb: 'v2.jpg', name: 'Moment Name a' },
   { type: 'image', src: 'w1.webp', thumb: '', name: 'Moment Name b' },
-  // { type: 'image', src: 'w2.webp', thumb: '', name: 'Moment Name b' },
+  { type: 'image', src: 'w2.webp', thumb: '', name: 'Moment Name b' },
   { type: 'image', src: 'w3.webp', thumb: '', name: 'Moment Name c' },
-  // { type: 'image', src: 'w4.webp', thumb: '', name: 'Moment Name c' },
+  { type: 'image', src: 'w4.webp', thumb: '', name: 'Moment Name c' },
 ];
 
 const sessionOptions = {
@@ -65,7 +65,7 @@ export default function Xrj(photoIndex) {
   //     btnNext$.removeEventListener('click', handlerNext);
   //   };
   // }, [handlerNext, handlerPrev]);
-
+  console.log(photoIndex.photoIndex);
   return (
     <>
       {useSessionSupported('immersive-vr') && (
@@ -99,6 +99,7 @@ export default function Xrj(photoIndex) {
           // setPhotoIndex={setPhotoIndex}
           mediaPath={mediaPath}
           mediaDb={mediaDb}
+          // photoIndex={photoIndex}
         />
         <Hud
           // setPhotoIndex={setPhotoIndex}

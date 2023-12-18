@@ -131,6 +131,7 @@ export const GalleryListOpenBottomNav = ({ className }: GalleryListOpenBottomNav
                                 stackName={'index'}
                                 className="is--carousel"
                                 style={{ alignItems: 'flex-start' }}
+                                // handle={handleToggle}
                             />
                         ))}
                     </div>

@@ -6,9 +6,16 @@ export interface ButtonIconProps {
     icon?: string;
     photo?: string;
     handle?: React.MouseEventHandler;
+    id?: string;
 }
 
-export const ButtonIcon = ({ className, icon = 'dots', photo = '', handle }: ButtonIconProps) => {
+export const ButtonIcon = ({
+    className,
+    icon = 'dots',
+    photo = '',
+    handle,
+    id = '',
+}: ButtonIconProps) => {
     let imgSrc;
     let imgClass;
     if (photo !== '') {
@@ -19,10 +26,11 @@ export const ButtonIcon = ({ className, icon = 'dots', photo = '', handle }: But
         imgClass = styles.ico;
     }
     // console.log(imgClass, imgSrc);
+    // const ids = id !=='' ? `id=${id}`:''
 
     return (
         <div className={classNames(styles.root, className)}>
-            <div className="btn-ico" onClick={handle}>
+            <div className="btn-ico" onClick={handle} id={id}>
                 <img src={imgSrc} alt="" className={imgClass} />
             </div>
         </div>

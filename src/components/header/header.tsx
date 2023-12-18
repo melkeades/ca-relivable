@@ -53,7 +53,7 @@ export const Header = ({
     const renderRight = () => {
         if (
             screenS.value === 'home' ||
-            screenS.value === 'galleryOpen' ||
+            screenS.value === 'galleryList' ||
             screenS.value === 'momentOpen'
         ) {
             return (
