@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/components/gallery-stack/gallery-stack.module.scss",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1702667838251,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1702667894308,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,11 @@\n     line-height: 1.45;\n     font-weight: 500;\n }\n \n-.gallery-stack__img-1 {}\n+.gallery-stack__img-1 {\n+    left: 1rem\n+}\n \n .gallery-stack__img-2 {}\n \n .gallery-stack__img-3 {}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702667906044,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n   font-weight: 500;\n }\n \n .gallery-stack__img-1 {\n-  left: 1rem;\n+  margin-left: ;: 1rem;\n }\n \n .gallery-stack__img-2 {\n }\n"
+                }
+            ],
+            "date": 1702667838251,
+            "name": "Commit-0",
+            "content": ".root {\n    display: flex;\n    flex-direction: column;\n    gap: 0.75rem;\n}\n\n.gallery-stack__img-wrap {\n    display: grid;\n}\n\n.gallery-stack__img {\n    grid-row-start: 1;\n    grid-row-end: 1;\n    grid-column-start: 1;\n    grid-column-end: 1;\n}\n\n.gallery-stack__title {\n    font-size: 1.5rem;\n    line-height: 1.45;\n    font-weight: 500;\n}"
+        }
+    ]
+}

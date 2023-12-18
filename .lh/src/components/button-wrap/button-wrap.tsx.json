@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/components/button-wrap/button-wrap.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1702237571618,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1702237622996,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n /**\n  * This component was created using Codux's Default new component template.\n  * To create custom component templates, see https://help.codux.com/kb/en/article/kb16522\n  */\n-export const ButtonWrap = ({ className }: PropsWithChildren<ButtonWrapProps>) => {\n+export const ButtonWrap = (props: PropsWithChildren<ButtonWrapProps>) => {\n     return (\n         <div className={classNames(styles.root, className)}>\n             {/* <Button ico=\"play\" label=\"name\" className=\"button--outline\" /> */}\n         </div>\n"
+                },
+                {
+                    "date": 1702237650180,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n  * To create custom component templates, see https://help.codux.com/kb/en/article/kb16522\n  */\n export const ButtonWrap = (props: PropsWithChildren<ButtonWrapProps>) => {\n     return (\n-        <div className={classNames(styles.root, className)}>\n+        <div className={classNames(styles.root, props.className)}>\n             {/* <Button ico=\"play\" label=\"name\" className=\"button--outline\" /> */}\n         </div>\n     );\n };\n"
+                }
+            ],
+            "date": 1702237571618,
+            "name": "Commit-0",
+            "content": "import { PropsWithChildren } from 'react'\nimport classNames from 'classnames';\nimport styles from './button-wrap.module.scss';\nimport { Button } from '../button/button';\n\nexport interface ButtonWrapProps {\n    className?: string;\n}\n\n/**\n * This component was created using Codux's Default new component template.\n * To create custom component templates, see https://help.codux.com/kb/en/article/kb16522\n */\nexport const ButtonWrap = ({ className }: PropsWithChildren<ButtonWrapProps>) => {\n    return <div className={classNames(styles.root, className)}>\n        {/* <Button ico=\"play\" label=\"name\" className=\"button--outline\" /> */}\n        </div>;\n};\n"
+        }
+    ]
+}

@@ -1,3 +1,81 @@
+/* fraunces-regular - latin */
+@font-face {
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./fonts/fraunces-v31-latin-regular.woff2') format('woff2');
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* inter-300 - latin */
+@font-face {
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  src: url('./fonts/inter-v13-latin-300.woff2') format('woff2');
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* inter-regular - latin */
+@font-face {
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./fonts/inter-v13-latin-regular.woff2') format('woff2');
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* inter-500 - latin */
+@font-face {
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  src: url('./fonts/inter-v13-latin-500.woff2') format('woff2');
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* inter-600 - latin */
+@font-face {
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  src: url('./fonts/inter-v13-latin-600.woff2') format('woff2');
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* <Lenis */
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Lenis */
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -6,7 +84,31 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+  /* -webkit-text-size-adjust: 100%; */
+  --color-white: white;
+  --color-black: black;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --white-svg: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(2%) hue-rotate(235deg)
+    brightness(105%) contrast(100%);
+  --ease-sm: 300ms ease-in-out;
+
+  /* firefox */
+  /* scrollbar-width: none; */
+
+  /* overflow: hidden; */
+  /* all other browsers */
+  &::-webkit-scrollbar {
+    /* display: none; */
+    /* visibility: hidden; */
+  }
+  /* overflow: scroll !important; */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  flex-shrink: 1;
 }
 
 a {
@@ -14,38 +116,281 @@ a {
   color: #646cff;
   text-decoration: inherit;
 }
+
 a:hover {
   color: #535bf2;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  justify-content: center;
-  min-width: 320px;
+html,
+body,
+#root,
+.boardCanvas {
+  width: 100% !important;
+  height: 100% !important;
   min-height: 100vh;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+#root {
+  position: relative;
+}
+
+body::-webkit-scrollbar {
+  width: 5px; /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: black; /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(150, 150, 150); /* color of the scroll thumb */
+  border-radius: 99rem; /* roundness of the scroll thumb */
+}
+
+img {
+  display: block;
+  /* vertical-align: middle; */
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: 'Fraunces';
+  line-height: 0.82;
+}
+h1,
+.h1 {
+  font-size: 14.125rem;
+  letter-spacing: -0.42375rem;
+}
+h2,
+.h2 {
+  font-size: 5.375rem;
+  letter-spacing: -0.16125rem;
+}
+h3,
+.h3 {
+  font-size: 4rem;
+  letter-spacing: -0.12rem;
+}
+h4,
+.h4 {
+  font-size: 3rem;
+  letter-spacing: -0.09rem;
+}
+h5,
+.h5 {
+  font-size: 2rem;
+  letter-spacing: -0.09rem;
 }
 
 button {
-  border-radius: 8px;
+  border-radius: 99rem;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
+  padding: 0.625em 1.25em 0.6em 2em;
+  font-size: 1rem;
+  font-weight: 600;
   font-family: inherit;
   cursor: pointer;
   transition: border-color 0.25s;
+  line-height: 1;
+  display: flex;
+  flex-shrink: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  gap: 0.625em;
+  align-items: center;
+  background-color: #ffffff;
+  transition: all var(--ease-sm);
+  /* transition-delay: 0s; */
+
+  &:hover {
+    color: white;
+    background-color: black;
+
+    .button__ico {
+      filter: var(--white-svg);
+    }
+  }
+
+  /* &:focus,
+  &:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+  } */
 }
-button:hover {
-  border-color: #646cff;
+
+.button--outline {
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+
+  .button__ico {
+    filter: var(--white-svg);
+  }
+
+  &:hover {
+    color: black;
+    background-color: white;
+
+    .button__ico {
+      filter: none;
+    }
+  }
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+
+.button--dark {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: white;
+
+  &:hover {
+    border-color: rgba(0, 0, 0, 0.8);
+  }
+
+  .button__ico {
+    filter: var(--white-svg);
+  }
+}
+
+.button--small {
+  padding: 0.75rem 1rem;
+  text-transform: none;
+}
+
+.button--ico {
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  /* transition-delay: 0s; */
+}
+
+.button--ico--small {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.button__ico {
+  width: 24px;
+  height: 24px;
+  transition: filter var(--ease-sm);
+  /* to remove the delay*/
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 45rem;
+  text-align: start;
+}
+
+.thumbMask1 {
+  clip-path: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='svg'%3E%3CclipPath id='thumbMask1' clipPathUnits='objectBoundingBox'%3E%3Cpath d='M0.968,0.001 L0.02,0.037 C0.01,0.038,0.001,0.05,0.002,0.065 L0.018,0.975 C0.018,0.99,0.027,1,0.037,1 L0.985,0.965 C0.996,0.965,1,0.952,1,0.937 L0.987,0.027 C0.987,0.012,0.978,0,0.968,0.001'%3E%3C/path%3E%3C/clipPath%3E%3C/svg%3E");
+}
+.thumbMask2 {
+  clip-path: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='svg'%3E%3CclipPath id='thumbMask2' clipPathUnits='objectBoundingBox'%3E%3Cpath d='M0.012,0.027 C0.012,0.012,0.021,0,0.031,0 L0.982,0.026 C0.992,0.027,1,0.039,1,0.055 L0.988,0.973 C0.988,0.988,0.979,1,0.969,1 L0.018,0.974 C0.008,0.973,0,0.961,0,0.945 L0.012,0.027'%3E%3C/path%3E%3C/clipPath%3E%3C/svg%3E");
+}
+.thumbMask3 {
+  clip-path: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='svg'%3E%3CclipPath id='thumbMask3' clipPathUnits='objectBoundingBox'%3E%3Cpath d='M0,0.028 C0,0.013,0.009,0,0.019,0 H0.981 C0.991,0,1,0.013,1,0.028 V0.972 C1,0.987,0.991,1,0.981,1 H0.019 C0.009,1,0,0.987,0,0.972 V0.028'%3E%3C/path%3E%3C/clipPath%3E%3C/svg%3E");
+}
+
+.mask-svg {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+.bg-wrap {
+  position: fixed;
+  inset: 0;
+  background-color: black;
+}
+
+.bg-img {
+  width: 100%;
+  height: 160vh;
+  opacity: 0.4;
+}
+
+.is--carousel {
+  /* -webkit-user-select: none !important;
+  user-select: none !important; */
+  img {
+    /* pointer-events: none; */
+    /* -webkit-user-drag: none;
+    user-drag: none; */
+  }
+  /* opacity: 0.4; */
+}
+.btn-ico {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 99rem;
+  background: rgba(0, 0, 0, 0.2);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 300ms;
+  & > img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: var(--white-svg);
+  }
+  &:hover {
+    background: black;
+  }
+}
+.default {
+  filter: opacity(0);
+  pointer-events: none;
+  transition: all 600ms;
+}
+.active {
+  filter: opacity(1) !important;
+  pointer-events: auto !important;
+}
+.home-w {
+  position: fixed;
+}
+.out {
+  position: fixed !important;
+  left: 0 !important;
+  top: 0 !important;
+  right: 0 !important;
+}
+.off {
+  display: none !important;
+}
+.moment-open {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+}
+.list__moment {
+  & > div > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  & canvas {
+    width: 100vw !important;
+    height: 100vh !important;
+    flex-shrink: 0;
+  }
 }

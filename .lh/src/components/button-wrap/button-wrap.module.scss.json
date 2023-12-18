@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/components/button-wrap/button-wrap.module.scss",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1702225215420,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1702225253646,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n .root {}\n \n .button-wrap {\n     display: flex;\n-    gap: 0em;\n+    gap: 1rem;\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702228635578,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,5 @@\n .root {\n     display: flex;\n     gap: 2rem;\n+    padding: 2rem 0px 0px;\n }\n-\n-.button-wrap {\n-    display: flex;\n-    gap: 1rem;\n-    padding: 2rem 0px 0px;\n\\ No newline at end of file\n-}\n"
+                }
+            ],
+            "date": 1702225215420,
+            "name": "Commit-0",
+            "content": ".root {}\n\n.button-wrap {\n    display: flex;\n    gap: 1rem;\n}"
+        }
+    ]
+}

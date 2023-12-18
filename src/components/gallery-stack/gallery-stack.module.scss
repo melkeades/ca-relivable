@@ -1,0 +1,71 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  transition: all 400ms;
+  &:hover {
+    filter: brightness(125%);
+  }
+}
+
+.gallery-stack__thumbs {
+  display: grid;
+  height: 100%;
+  width: 100%;
+}
+
+.gallery-stack__img-wrap {
+  grid-row-start: 1;
+  grid-row-end: 1;
+  grid-column-start: 1;
+  grid-column-end: 1;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  width: 100%;
+  height: 100%;
+}
+
+.gallery-stack__img {
+  //   width: 20rem !important;
+  aspect-ratio: 1.49/1 !important;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.gallery-stack__img-wrap:has(.gallery-stack__img-1) {
+  z-index: 130;
+}
+
+.gallery-stack__img-wrap:has(.gallery-stack__img-2) {
+  z-index: 120;
+}
+
+.gallery-stack__img-wrap:has(.gallery-stack__img-3) {
+  z-index: 110;
+}
+
+.gallery-stack__title {
+  font-size: 1.5rem;
+  line-height: 1.45;
+  font-weight: 500;
+}
+
+.gallery-stack__img-1 {
+  clip-path: url(#mask1);
+  margin-left: 0.75rem;
+  height: 100%;
+  width: 100%;
+}
+
+.gallery-stack__img-2 {
+  clip-path: url(#mask2);
+  margin-top: 0.75rem;
+  margin-left: 0.875rem;
+}
+
+.gallery-stack__img-3 {
+  clip-path: url(#mask3);
+}

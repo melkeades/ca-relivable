@@ -1,0 +1,34 @@
+{
+    "sourceFile": "src/components/moment-list/moment-list.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1702461232299,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1702461362832,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -55,19 +55,19 @@\n         ScrollTrigger.refresh();\n     }, [contRef]);\n \n     return (\n-        <div className={classNames(styles.root, className, styles.moments)} ref={contRef}>\n-            <div className={styles.moments__list}>\n+        <div className={classNames(styles.root, className, styles.momentList)} ref={contRef}>\n+            <div className={styles.momentList__list}>\n                 {[...Array(4)].map((moment, index) => (\n                     <Moment key={index} photoIndex={'0' + (index + 1)} />\n                 ))}\n             </div>\n-            <div className={styles['moments__bg-wrap']}>\n+            <div className={styles['moment-list__bg-wrap']}>\n                 <img\n                     src=\"../img/bg.webp\"\n                     alt=\"\"\n-                    className={styles['moments__bg-img']}\n+                    className={styles['moment-list__bg-img']}\n                     ref={bgImgRef}\n                 />\n             </div>\n         </div>\n"
+                },
+                {
+                    "date": 1702461761038,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -53,8 +53,10 @@\n     useEffect(() => {\n         // after the height of the div is updated\n         ScrollTrigger.refresh();\n     }, [contRef]);\n+    console.log(styles);\n+    \n \n     return (\n         <div className={classNames(styles.root, className, styles.momentList)} ref={contRef}>\n             <div className={styles.momentList__list}>\n"
+                },
+                {
+                    "date": 1702461824029,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -53,12 +53,11 @@\n     useEffect(() => {\n         // after the height of the div is updated\n         ScrollTrigger.refresh();\n     }, [contRef]);\n-    console.log(styles);\n \n     return (\n-        <div className={classNames(styles.root, className, styles.momentList)} ref={contRef}>\n+        <div className={classNames(styles.root, className, styles['moment-list'])} ref={contRef}>\n             <div className={styles.momentList__list}>\n                 {[...Array(4)].map((moment, index) => (\n                     <Moment key={index} photoIndex={'0' + (index + 1)} />\n                 ))}\n"
+                },
+                {
+                    "date": 1702461872360,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,9 +56,9 @@\n     }, [contRef]);\n \n     return (\n         <div className={classNames(styles.root, className, styles['moment-list'])} ref={contRef}>\n-            <div className={styles.momentList__list}>\n+            <div className={styles['moment-list__list']}>\n                 {[...Array(4)].map((moment, index) => (\n                     <Moment key={index} photoIndex={'0' + (index + 1)} />\n                 ))}\n             </div>\n"
+                }
+            ],
+            "date": 1702461232299,
+            "name": "Commit-0",
+            "content": "import classNames from 'classnames';\nimport styles from './moment-list.module.scss';\nimport { useRef, useLayoutEffect, useEffect } from 'react';\nimport gsap from 'gsap';\nimport ScrollTrigger from 'gsap/ScrollTrigger';\nimport { useGSAP } from '@gsap/react';\nimport Lenis from '@studio-freight/lenis';\nimport { Moment } from '../moment/moment';\n\ngsap.registerPlugin(ScrollTrigger);\n\nexport interface MomentListProps {\n    className?: string;\n}\n\nexport const MomentList = ({ className }: MomentListProps) => {\n    const lenis = useRef<Lenis | null>(null);\n    const contRef = useRef<HTMLDivElement>(null);\n    const bgImgRef = useRef<HTMLImageElement>(null);\n    const stTl = useRef<GSAPTween>();\n\n    useEffect(() => {\n        lenis.current = new Lenis();\n        const update = (time: number) => lenis.current?.raf(time * 1000);\n        lenis.current?.on('scroll', ScrollTrigger.update);\n        gsap.ticker.add((time) => update(time));\n        gsap.ticker.lagSmoothing(0);\n\n        return () => {\n            gsap.ticker.remove(update);\n        };\n    }, []);\n\n    useLayoutEffect(() => {\n        let ctx = gsap.context(() => {\n            gsap.timeline({\n                scrollTrigger: {\n                    trigger: contRef.current,\n                    start: 'top top',\n                    end: 'bottom bottom',\n                    // markers: true,\n                    scrub: true,\n                },\n            }).to(bgImgRef.current, {\n                y: '-60vh',\n                ease: 'none',\n            });\n        }, contRef);\n\n        return () => ctx.revert();\n    }, [contRef]);\n\n    useEffect(() => {\n        // after the height of the div is updated\n        ScrollTrigger.refresh();\n    }, [contRef]);\n\n    return (\n        <div className={classNames(styles.root, className, styles.moments)} ref={contRef}>\n            <div className={styles.moments__list}>\n                {[...Array(4)].map((moment, index) => (\n                    <Moment key={index} photoIndex={'0' + (index + 1)} />\n                ))}\n            </div>\n            <div className={styles['moments__bg-wrap']}>\n                <img\n                    src=\"../img/bg.webp\"\n                    alt=\"\"\n                    className={styles['moments__bg-img']}\n                    ref={bgImgRef}\n                />\n            </div>\n        </div>\n    );\n};\n"
+        }
+    ]
+}

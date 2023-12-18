@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/components/bg/bg.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1702475631467,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1702475682064,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,9 @@\n import ScrollTrigger from 'gsap/ScrollTrigger';\n import { useGSAP } from '@gsap/react';\n import Lenis from '@studio-freight/lenis';\n \n+gsap.registerPlugin(ScrollTrigger);\n export interface BgProps {\n     className?: string;\n }\n \n@@ -14,6 +15,47 @@\n  * This component was created using Codux's Default new component template.\n  * To create custom component templates, see https://help.codux.com/kb/en/article/kb16522\n  */\n export const Bg = ({ className }: BgProps) => {\n+        const lenis = useRef<Lenis | null>(null);\n+        const contRef = useRef<HTMLDivElement>(null);\n+        const bgImgRef = useRef<HTMLImageElement>(null);\n+        const stTl = useRef<GSAPTween>();\n+\n+        useEffect(() => {\n+            lenis.current = new Lenis();\n+            const update = (time: number) => lenis.current?.raf(time * 1000);\n+            lenis.current?.on('scroll', ScrollTrigger.update);\n+            gsap.ticker.add((time) => update(time));\n+            gsap.ticker.lagSmoothing(0);\n+\n+            return () => {\n+                gsap.ticker.remove(update);\n+            };\n+        }, []);\n+\n+        useLayoutEffect(() => {\n+            let ctx = gsap.context(() => {\n+                gsap.timeline({\n+                    scrollTrigger: {\n+                        trigger: contRef.current,\n+                        start: 'top top',\n+                        end: 'bottom bottom',\n+                        // markers: true,\n+                        scrub: true,\n+                    },\n+                }).to(bgImgRef.current, {\n+                    y: '-60vh',\n+                    ease: 'none',\n+                });\n+            }, contRef);\n+\n+            return () => ctx.revert();\n+        }, [contRef]);\n+\n+        useEffect(() => {\n+            // after the height of the div is updated\n+            ScrollTrigger.refresh();\n+        }, [contRef]);\n+\n     return <div className={classNames(styles.root, className, styles.bg)}></div>;\n };\n"
+                },
+                {
+                    "date": 1702475717068,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,6 +56,17 @@\n         // after the height of the div is updated\n         ScrollTrigger.refresh();\n     }, [contRef]);\n \n-    return <div className={classNames(styles.root, className, styles.bg)}></div>;\n+    return (\n+        <div className={classNames(styles.root, className, styles.bg)}>\n+            <div className={styles['moment-list__bg-wrap']}>\n+                <img\n+                    src=\"../img/bg.webp\"\n+                    alt=\"\"\n+                    className={styles['moment-list__bg-img']}\n+                    ref={bgImgRef}\n+                />\n+            </div>\n+        </div>\n+    );\n };\n"
+                }
+            ],
+            "date": 1702475631467,
+            "name": "Commit-0",
+            "content": "import classNames from 'classnames';\nimport styles from './bg.module.scss';\nimport { useRef, useLayoutEffect, useEffect } from 'react';\nimport gsap from 'gsap';\nimport ScrollTrigger from 'gsap/ScrollTrigger';\nimport { useGSAP } from '@gsap/react';\nimport Lenis from '@studio-freight/lenis';\n\n\nexport interface BgProps {\n    className?: string;\n}\n\n/**\n * This component was created using Codux's Default new component template.\n * To create custom component templates, see https://help.codux.com/kb/en/article/kb16522\n */\nexport const Bg = ({ className }: BgProps) => {\n    return <div className={classNames(styles.root, className, styles.bg)}></div>;\n};\n"
+        }
+    ]
+}

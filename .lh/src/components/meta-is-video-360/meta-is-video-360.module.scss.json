@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/components/meta-is-video-360/meta-is-video-360.module.scss",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1702685918953,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1702686020119,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n .root {\n     display: flex;\n-    gap: 0.5em;\n+    gap: 0.5rem;\n }\n \n .is--360 {\n     display: flex;\n"
+                },
+                {
+                    "date": 1702686083764,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,5 +13,8 @@\n     border-radius: 99rem;\n     background: rgba(0, 0, 0, 0.3);\n     backdrop-filter: blur(5px);\n     -webkit-backdrop-filter: blur(5px);\n+}\n+.is--video{\n+    \n }\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1702685918953,
+            "name": "Commit-0",
+            "content": ".root {}\n\n.is--360 {\n    display: flex;\npadding: 0.25rem 0.6875rem;\njustify-content: center;\nalign-items: center;\ngap: 0.625rem;\nborder-radius: 99rem;\nbackground: rgba(0, 0, 0, 0.30);\nbackdrop-filter: blur(5px);\n-webkit-backdrop-filter: blur(5px)\n}"
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/components/meta-is-video-360/meta-is-video-360.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1702686330165,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1702686345875,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,11 @@\n \n export const MetaIsVideo360 = ({ className, is360, isVideo }: MetaIsVideo360Props) => {\n     return (\n         <div className={classNames(styles.root, className)}>\n-            <div className={styles['is--360']}>360°</div>\n+        {is360&&\n+        <div className={styles['is--360']}>360°</div>\n+        }\n             <img src=\"../img/ico_video.svg\" alt=\"\" className={styles['is--video']} />\n         </div>\n     );\n };\n"
+                },
+                {
+                    "date": 1702686353795,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,8 +10,10 @@\n export const MetaIsVideo360 = ({ className, is360, isVideo }: MetaIsVideo360Props) => {\n     return (\n         <div className={classNames(styles.root, className)}>\n             {is360 && <div className={styles['is--360']}>360°</div>}\n+            {isVideo&&\n             <img src=\"../img/ico_video.svg\" alt=\"\" className={styles['is--video']} />\n-        </div>\n+}\n+                    </div>\n     );\n };\n"
+                }
+            ],
+            "date": 1702686330165,
+            "name": "Commit-0",
+            "content": "import classNames from 'classnames';\nimport styles from './meta-is-video-360.module.scss';\n\nexport interface MetaIsVideo360Props {\n    className?: string;\n    isVideo: boolean;\n    is360: boolean;\n}\n\nexport const MetaIsVideo360 = ({ className, is360, isVideo }: MetaIsVideo360Props) => {\n    return <div className={classNames(styles.root, className)}>\n        \n        <div className={styles['is--360']} >360°</div>\n<img src=\"../img/ico_video.svg\" alt=\"\" className={styles['is--video']} />\n    </div>;\n};\n"
+        }
+    ]
+}

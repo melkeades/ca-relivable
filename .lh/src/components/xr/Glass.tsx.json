@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/components/xr/Glass.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1702874412097,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1702874412097,
+            "name": "Commit-0",
+            "content": "import { Container } from '@coconut-xr/koestlich';\r\nimport { makeBorderMaterial } from '@coconut-xr/xmaterials';\r\nimport { MeshPhongMaterial } from 'three';\r\n\r\nconst GlassMaterial = makeBorderMaterial(MeshPhongMaterial, {\r\n    specular: '#555',\r\n    shininess: 100,\r\n});\r\n\r\ninterface GlassProps {\r\n    backgroundColor?: number;\r\n}\r\n\r\nconst Glass: React.FC<GlassProps> = ({ backgroundColor = 0x888888, ...props }) => {\r\n    return (\r\n        <Container\r\n            backgroundColor={backgroundColor}\r\n            backgroundOpacity={0.8}\r\n            borderColor={backgroundColor}\r\n            border={4}\r\n            borderOpacity={0.8}\r\n            borderBend={0.3}\r\n            material={GlassMaterial}\r\n            {...props}\r\n        />\r\n    );\r\n};\r\n\r\nexport default Glass;\r\n"
+        }
+    ]
+}

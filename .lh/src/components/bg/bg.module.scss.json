@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/components/bg/bg.module.scss",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1702478336254,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1702652603788,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,11 @@\n .root {\n }\n \n .bg {\n+position: fixed;\n+  inset: 0;\n+  background-color: black;\n }\n .bg-wrap {\n   position: fixed;\n   inset: 0;\n"
+                }
+            ],
+            "date": 1702478336254,
+            "name": "Commit-0",
+            "content": ".root {}\n\n.bg {}\n.bg-wrap {\n  position: fixed;\n  inset: 0;\n  background-color: black;\n}\n\n.bg-img {\n  width: 100%;\n  height: 160vh;\n  opacity: 0.4;\n  //   background-image: url('../img/bg.webp');\n  //   background-position: 50%;\n  //   background-size: cover;\n  //   background-attachment: scroll;\n  //   background-origin: padding-box;\n  //   background-clip: border-box;opacity:0.8;opacity:0;opacity:0;opacity:0;opacity:0.4;\n}\n"
+        }
+    ]
+}

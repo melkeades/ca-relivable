@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/components/gallery-list-open/gallery-list-open.module.scss",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1702674219023,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1702687851911,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,2 +1,5 @@\n .root {\n }\n+.gallery-list-open__list{\n+    display: grid;\n+}\n"
+                },
+                {
+                    "date": 1702687873558,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n .root {\n }\n .gallery-list-open__list {\n   display: grid;\n+  grid-template-columns: 1fr 1fr 1fr;\n }\n"
+                },
+                {
+                    "date": 1702687996789,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,5 +2,7 @@\n }\n .gallery-list-open__list {\n   display: grid;\n   grid-template-columns: 1fr 1fr 1fr;\n+  grid-column-gap: 2rem;\n+  grid-row-gap: 2rem;\n }\n"
+                }
+            ],
+            "date": 1702674219023,
+            "name": "Commit-0",
+            "content": ".root {\n}\n"
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/components/button-icon/button-icon.module.scss",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1702833219768,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1702833330199,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,5 @@\n .root {\n-    width: 3rem;\n-    height: 3rem;\n-    border-radius: 99rem;\n-    background: rgba(0, 0, 0, 0.2);\n-    -webkit-backdrop-filter: blur(5px);\n-    backdrop-filter: blur(5px);\n+    \n }\n \n-.svg {}\n-\n .ico {}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702833767332,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,4 +2,8 @@\n }\n \n .ico {\n }\n+.photo{\n+    width: 100%;\n+    height: 100%;\n+}\n"
+                }
+            ],
+            "date": 1702833219768,
+            "name": "Commit-0",
+            "content": ".root {\n    width: 3rem;\n  height: 3rem;\n  border-radius: 99rem;\n  background: rgba(0, 0, 0, 0.2);\n  -webkit-backdrop-filter: blur(5px);\n  backdrop-filter: blur(5px);\n}\n"
+        }
+    ]
+}

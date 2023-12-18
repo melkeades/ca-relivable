@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/components/gallery-list-open-item/gallery-list-open-item.module.scss",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1702674673633,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1702678030797,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,35 +1,28 @@\n .root {\n-    position: relative;\n+  position: relative;\n }\n \n .item-tl {\n-    aspect-ratio: 1.27/1;\n+  aspect-ratio: 1.27/1;\n+  img{\n+\n+  }\n }\n-\n .item-tm {\n-    aspect-ratio: 1.39/1;\n+  aspect-ratio: 1.39/1;\n }\n-\n .item-tr {\n-    aspect-ratio: 1.28/1;\n+  aspect-ratio: 1.28/1;\n }\n-\n .item-bl {\n-    aspect-ratio: 1.27/1;\n+  aspect-ratio: 1.27/1;\n }\n-\n .item-bm {\n-    aspect-ratio: 1.39/1;\n+  aspect-ratio: 1.39/1;\n }\n-\n .item-br {\n-    aspect-ratio: 1.28/1;\n+  aspect-ratio: 1.28/1;\n }\n-\n-.item-wrap {\n-    position: relative;\n-}\n-\n-.item {\n-    position: relative;\n+.item{\n+    opacity: .5;\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702678047364,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,6 +22,8 @@\n .item-br {\n   aspect-ratio: 1.28/1;\n }\n .item {\n-  opacity: 0.5;\n+    position: absolute;\n+    inset: 0;\n+    \n }\n"
+                }
+            ],
+            "date": 1702674673633,
+            "name": "Commit-0",
+            "content": ".root {\n    position: relative;\n}\n.item-tl { aspect-ratio: 1.27/1; }\n.item-tm { aspect-ratio: 1.39/1; }\n.item-tr { aspect-ratio: 1.28/1; }\n.item-bl { aspect-ratio: 1.27/1; }\n.item-bm { aspect-ratio: 1.39/1; }\n.item-br { aspect-ratio: 1.28/1; }"
+        }
+    ]
+}

@@ -1,0 +1,42 @@
+{
+    "sourceFile": "src/components/moment/moment.module.scss",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1702462689267,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1702882722061,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,9 @@\n   height: 100%;\n   background-color: gray;\n   aspect-ratio: 1.64/1 !important;\n   overflow: hidden;\n+  transition: all 300ms;\n }\n .moment__img {\n   //   position: absolute;\n   //   inset: 0;\n"
+                },
+                {
+                    "date": 1702882743203,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n .root {\n+  transition: all 300ms;\n }\n \n .moment {\n   position: relative;\n"
+                },
+                {
+                    "date": 1702882944843,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n .root {\n-  transition: all 300ms;\n+  \n }\n \n .moment {\n   position: relative;\n@@ -10,8 +10,11 @@\n   background-color: gray;\n   aspect-ratio: 1.64/1 !important;\n   overflow: hidden;\n   transition: all 300ms;\n+  div {\n+    transition: all 300ms;\n+  }\n }\n .moment__img {\n   //   position: absolute;\n   //   inset: 0;\n"
+                },
+                {
+                    "date": 1702882968964,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n   background-color: gray;\n   aspect-ratio: 1.64/1 !important;\n   overflow: hidden;\n   transition: all 300ms;\n-  div {\n+  div, canvas {\n     transition: all 300ms;\n   }\n }\n .moment__img {\n"
+                },
+                {
+                    "date": 1702882997338,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,8 +13,9 @@\n   div,\n   canvas {\n     transition: all 300ms;\n   }\n+  \n }\n .moment__img {\n   //   position: absolute;\n   //   inset: 0;\n"
+                },
+                {
+                    "date": 1702883309144,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,12 +8,12 @@\n   height: 100%;\n   background-color: gray;\n   aspect-ratio: 1.64/1 !important;\n   overflow: hidden;\n-  transition: all 300ms;\n+  // transition: all 300ms;\n   div,\n   canvas {\n-    transition: all 300ms;\n+    // transition: all 300ms;\n   }\n }\n .moment__img {\n   //   position: absolute;\n"
+                }
+            ],
+            "date": 1702462689267,
+            "name": "Commit-0",
+            "content": ".root {\n}\n\n.moment {\n  position: relative;\n  z-index: 10;\n  width: 100%;\n  height: 100%;\n  background-color: gray;\n  aspect-ratio: 1.64/1 !important;\n  overflow: hidden;\n}\n.moment__img {\n  //   position: absolute;\n  //   inset: 0;\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n}\n"
+        }
+    ]
+}

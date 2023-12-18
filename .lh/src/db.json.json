@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/db.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1702855645954,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1702855683773,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,8 @@\n+const mediaDb = [\r\n+  { type: 'video', src: 'v1.mp4', thumb: 'v1.jpg', name: 'Moment Name a' },\r\n+  { type: 'video', src: 'v2.mp4', thumb: 'v2.jpg', name: 'Moment Name a' },\r\n+  { type: 'image', src: 'w1.webp', thumb: '', name: 'Moment Name b' },\r\n+  // { type: 'image', src: 'w2.webp', thumb: '', name: 'Moment Name b' },\r\n+  { type: 'image', src: 'w3.webp', thumb: '', name: 'Moment Name c' },\r\n+  // { type: 'image', src: 'w4.webp', thumb: '', name: 'Moment Name c' },\r\n+]\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1702855645954,
+            "name": "Commit-0",
+            "content": " [\r\n  { type: 'video', src: 'v1.mp4', thumb: 'v1.jpg', name: 'Moment Name a' },\r\n  { type: 'video', src: 'v2.mp4', thumb: 'v2.jpg', name: 'Moment Name a' },\r\n  { type: 'image', src: 'w1.webp', thumb: '', name: 'Moment Name b' },\r\n  { type: 'image', src: 'w2.webp', thumb: '', name: 'Moment Name b' },\r\n  { type: 'image', src: 'w3.webp', thumb: '', name: 'Moment Name c' },\r\n  { type: 'image', src: 'w4.webp', thumb: '', name: 'Moment Name c' },\r\n ]"
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/components/gallery-list/gallery-list.module.scss",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1702673575468,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1702673727450,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n .root {\n }\n-.gallery__list {\n+.gallery-list__list {\n   display: grid;\n   grid-column-gap: 2rem;\n   grid-row-gap: 2rem;\n   padding: 1rem;\n"
+                },
+                {
+                    "date": 1702673769314,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,4 +6,10 @@\n   grid-row-gap: 2rem;\n   padding: 1rem;\n   grid-template-columns: 1fr 1fr 1fr;\n }\n+\n+.gallery-list__title {\n+  display: flex;\n+  justify-content: center;\n+  padding-bottom: 2rem;\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702674113644,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,5 +11,5 @@\n .gallery-list__title {\n   display: flex;\n   justify-content: center;\n   padding-bottom: 2rem;\n-}\n\\ No newline at end of file\n+}\n"
+                }
+            ],
+            "date": 1702673575468,
+            "name": "Commit-0",
+            "content": ".root {\n}\n.gallery__list {\n  display: grid;\n  grid-column-gap: 2rem;\n  grid-row-gap: 2rem;\n  padding: 1rem;\n  grid-template-columns: 1fr 1fr 1fr;\n}\n\n"
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+{
+    "sourceFile": "src/db.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1702856101702,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1702856278743,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,11 @@\n+export type mediaDb = {\r\n+    type: string;\r\n+    src: string;\r\n+    thumb: string;\r\n+    moment: string;\r\n+    favorite: boolean;\r\n+};\r\n export const mediaDb = [\r\n     { type: 'video', src: 'v1.mp4', thumb: 'v1.jpg', moment: 'Moment Name a', favorite: true },\r\n     { type: 'video', src: 'v2.mp4', thumb: 'v2.jpg', moment: 'Moment Name a', favorite: false },\r\n     { type: 'image', src: 'w1.webp', thumb: '', moment: 'Moment Name b', favorite: true },\r\n"
+                },
+                {
+                    "date": 1702856323682,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,13 @@\n     { type: 'video', src: 'v2.mp4', thumb: 'v2.jpg', moment: 'Moment Name a', favorite: false },\r\n     { type: 'image', src: 'w1.webp', thumb: '', moment: 'Moment Name b', favorite: true },\r\n     { type: 'image', src: 'w3.webp', thumb: '', moment: 'Moment Name c', favorite: false },\r\n ];\r\n-\r\n+const type metaDb= {\r\n+    names: string;\r\n+    description: string;\r\n+    profileImage: string;\r\n+};\r\n export const metaDb = {\r\n     names: 'Casey &Peter',\r\n     description:\r\n         'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',\r\n"
+                },
+                {
+                    "date": 1702856337010,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,19 +5,19 @@\n     moment: string;\r\n     favorite: boolean;\r\n };\r\n \r\n+const type metaDb= {\r\n+    names: string;\r\n+    description: string;\r\n+    profileImage: string;\r\n+};\r\n export const mediaDb = [\r\n     { type: 'video', src: 'v1.mp4', thumb: 'v1.jpg', moment: 'Moment Name a', favorite: true },\r\n     { type: 'video', src: 'v2.mp4', thumb: 'v2.jpg', moment: 'Moment Name a', favorite: false },\r\n     { type: 'image', src: 'w1.webp', thumb: '', moment: 'Moment Name b', favorite: true },\r\n     { type: 'image', src: 'w3.webp', thumb: '', moment: 'Moment Name c', favorite: false },\r\n ];\r\n-const type metaDb= {\r\n-    names: string;\r\n-    description: string;\r\n-    profileImage: string;\r\n-};\r\n export const metaDb = {\r\n     names: 'Casey &Peter',\r\n     description:\r\n         'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',\r\n"
+                },
+                {
+                    "date": 1702856344317,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n     moment: string;\r\n     favorite: boolean;\r\n };\r\n \r\n-const type metaDb= {\r\n+export type metaDb= {\r\n     names: string;\r\n     description: string;\r\n     profileImage: string;\r\n };\r\n"
+                }
+            ],
+            "date": 1702856101702,
+            "name": "Commit-0",
+            "content": "export const mediaDb = [\r\n    { type: 'video', src: 'v1.mp4', thumb: 'v1.jpg', moment: 'Moment Name a', favorite: true },\r\n    { type: 'video', src: 'v2.mp4', thumb: 'v2.jpg', moment: 'Moment Name a', favorite: false },\r\n    { type: 'image', src: 'w1.webp', thumb: '', moment: 'Moment Name b', favorite: true },\r\n    { type: 'image', src: 'w3.webp', thumb: '', moment: 'Moment Name c', favorite: false },\r\n];\r\n\r\nexport const metaDb = {\r\n    names: 'Casey &Peter',\r\n    description:\r\n        'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',\r\n    profileImage: 'profile.webp',\r\n};\r\n"
+        }
+    ]
+}

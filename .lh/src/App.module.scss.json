@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/App.module.scss",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1702224086365,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1702224572587,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,8 @@\n   padding: 2rem;\n   text-align: center;\n }\n \n-.btn__ico {\n+.button__ico {\n   width: 24px;\n   height: 24px;\n }\n"
+                },
+                {
+                    "date": 1702224606216,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,4 @@\n   padding: 2rem;\n   text-align: center;\n }\n \n-.button__ico {\n-  width: 24px;\n-  height: 24px;\n-}\n"
+                }
+            ],
+            "date": 1702224086365,
+            "name": "Commit-0",
+            "content": ".App {\n    max-width: 1280px;\n    margin: 0 auto;\n    padding: 2rem;\n    text-align: center;\n}\n\n\n\n\n.btn__ico {\n    width: 24px;\n    height: 24px;\n}"
+        }
+    ]
+}

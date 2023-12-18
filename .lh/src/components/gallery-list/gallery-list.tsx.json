@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/components/gallery-list/gallery-list.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1702673467116,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1702673479362,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,8 +11,8 @@\n     <div className={styles.gallery__window}>\n             <h4 className={classNames('h4', styles.gallery__title)}>Explore</h4>\n             </div>\n             <div>{[...Array(3)].map((gallery, index) => (            <GalleryStack />\n-)}\n+))}\n             </div>\n             </div>;\n };\n"
+                },
+                {
+                    "date": 1702673506488,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,10 +12,10 @@\n             <div className={styles.gallery__window}>\n                 <h4 className={classNames('h4', styles.gallery__title)}>Explore</h4>\n             </div>\n             <div>\n-                {[...Array(4)].map((gallery, index) => (\n-                    <GalleryStack />\n+                {[...Array(4)].map((stack, index) => (\n+                    <GalleryStack stackNumber={index}/>\n                 ))}\n             </div>\n         </div>\n     );\n"
+                },
+                {
+                    "date": 1702673592022,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n         <div className={classNames(styles.root, className)}>\n             <div className={styles.gallery__window}>\n                 <h4 className={classNames('h4', styles.gallery__title)}>Explore</h4>\n             </div>\n-            <div>\n+            <div className={styles['gallery-list__list']}>\n                 {[...Array(4)].map((stack, index) => (\n                     <GalleryStack stackNumber={index} />\n                 ))}\n             </div>\n"
+                }
+            ],
+            "date": 1702673467116,
+            "name": "Commit-0",
+            "content": "import classNames from 'classnames';\nimport styles from './gallery-list.module.scss';\nimport { GalleryStack } from '../gallery-stack/gallery-stack';\n\nexport interface GalleryListProps {\n    className?: string;\n}\n\nexport const GalleryList = ({ className }: GalleryListProps) => {\n    return <div className={classNames(styles.root, className)}>\n    <div className={styles.gallery__window}>\n            <h4 className={classNames('h4', styles.gallery__title)}>Explore</h4>\n            </div>\n            <div>{[...Array(3)].map((gallery, index) => (            <GalleryStack />\n)}\n            </div>\n            </div>;\n};\n"
+        }
+    ]
+}

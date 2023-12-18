@@ -1,0 +1,38 @@
+{
+    "sourceFile": "src/index.css",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1702224618669,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1702224644549,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,66 +1,66 @@\n :root {\n-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;\n-    line-height: 1.5;\n-    font-weight: 400;\n-    font-synthesis: none;\n-    text-rendering: optimizeLegibility;\n-    -webkit-font-smoothing: antialiased;\n-    -moz-osx-font-smoothing: grayscale;\n-    -webkit-text-size-adjust: 100%;\n+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;\n+  line-height: 1.5;\n+  font-weight: 400;\n+  font-synthesis: none;\n+  text-rendering: optimizeLegibility;\n+  -webkit-font-smoothing: antialiased;\n+  -moz-osx-font-smoothing: grayscale;\n+  -webkit-text-size-adjust: 100%;\n }\n \n a {\n-    font-weight: 500;\n-    color: #646cff;\n-    text-decoration: inherit;\n+  font-weight: 500;\n+  color: #646cff;\n+  text-decoration: inherit;\n }\n \n a:hover {\n-    color: #535bf2;\n+  color: #535bf2;\n }\n \n body {\n-    margin: 0;\n-    display: flex;\n-    place-items: center;\n-    justify-content: center;\n-    min-width: 320px;\n-    min-height: 100vh;\n+  margin: 0;\n+  display: flex;\n+  place-items: center;\n+  justify-content: center;\n+  min-width: 320px;\n+  min-height: 100vh;\n }\n \n h1 {\n-    font-size: 3.2em;\n-    line-height: 1.1;\n+  font-size: 3.2em;\n+  line-height: 1.1;\n }\n \n button {\n-    border-radius: 99rem;\n-    border: 1px solid transparent;\n-    padding: 0.625em 1.25em 0.6em 2em;\n-    font-size: 1rem;\n-    font-weight: 600;\n-    font-family: inherit;\n-    cursor: pointer;\n-    transition: border-color 0.25s;\n-    line-height: 1;\n-    display: flex;\n\\ No newline at end of file\n-    flex-shrink: 1;\n-    text-transform: uppercase;\n-    letter-spacing: 0.03em;\n-    gap: 0.625em;\n-    align-items: center;\n-    background-color: #FFFFFF;\n-.button__ico {\n-  width: 24px;\n-  height: 24px;\n+  border-radius: 99rem;\n+  border: 1px solid transparent;\n+  padding: 0.625em 1.25em 0.6em 2em;\n+  font-size: 1rem;\n+  font-weight: 600;\n+  font-family: inherit;\n+  cursor: pointer;\n+  transition: border-color 0.25s;\n+  line-height: 1;\n+  display: flex;\n+  flex-shrink: 1;\n+  text-transform: uppercase;\n+  letter-spacing: 0.03em;\n+  gap: 0.625em;\n+  align-items: center;\n+  background-color: #ffffff;\n+  .button__ico {\n+    width: 24px;\n+    height: 24px;\n+  }\n }\n-}\n \n button:hover {\n-    border-color: #646cff;\n+  border-color: #646cff;\n }\n \n button:focus,\n button:focus-visible {\n-    outline: 4px auto -webkit-focus-ring-color;\n-}\n+  outline: 4px auto -webkit-focus-ring-color;\n+}\n"
+                },
+                {
+                    "date": 1702224651043,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -49,9 +49,10 @@\n   letter-spacing: 0.03em;\n   gap: 0.625em;\n   align-items: center;\n   background-color: #ffffff;\n-  .button__ico {\n+\n+  &.button__ico {\n     width: 24px;\n     height: 24px;\n   }\n }\n"
+                },
+                {
+                    "date": 1702224664884,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,8 +56,12 @@\n     height: 24px;\n   }\n }\n \n+  .button__ico {\n+    width: 24px;\n+    height: 24px;\n+  }\n button:hover {\n   border-color: #646cff;\n }\n \n"
+                },
+                {
+                    "date": 1702224682314,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,12 +56,8 @@\n     height: 24px;\n   }\n }\n \n-.button__ico {\n-  width: 24px;\n-  height: 24px;\n-}\n button:hover {\n   border-color: #646cff;\n }\n \n"
+                },
+                {
+                    "date": 1702224708770,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,14 +50,14 @@\n   gap: 0.625em;\n   align-items: center;\n   background-color: #ffffff;\n \n-  .button__ico {\n-    width: 24px;\n-    height: 24px;\n-  }\n }\n \n+.button__ico {\n+  width: 24px;\n+  height: 24px;\n+}\n button:hover {\n   border-color: #646cff;\n }\n \n"
+                }
+            ],
+            "date": 1702224618669,
+            "name": "Commit-0",
+            "content": ":root {\n    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;\n    line-height: 1.5;\n    font-weight: 400;\n    font-synthesis: none;\n    text-rendering: optimizeLegibility;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n    -webkit-text-size-adjust: 100%;\n}\n\na {\n    font-weight: 500;\n    color: #646cff;\n    text-decoration: inherit;\n}\n\na:hover {\n    color: #535bf2;\n}\n\nbody {\n    margin: 0;\n    display: flex;\n    place-items: center;\n    justify-content: center;\n    min-width: 320px;\n    min-height: 100vh;\n}\n\nh1 {\n    font-size: 3.2em;\n    line-height: 1.1;\n}\n\nbutton {\n    border-radius: 99rem;\n    border: 1px solid transparent;\n    padding: 0.625em 1.25em 0.6em 2em;\n    font-size: 1rem;\n    font-weight: 600;\n    font-family: inherit;\n    cursor: pointer;\n    transition: border-color 0.25s;\n    line-height: 1;\n    display: flex;\n    flex-shrink: 1;\n    text-transform: uppercase;\n    letter-spacing: 0.03em;\n    gap: 0.625em;\n    align-items: center;\n    background-color: #FFFFFF;\n.button__ico {\n  width: 24px;\n  height: 24px;\n}\n}\n\nbutton:hover {\n    border-color: #646cff;\n}\n\nbutton:focus,\nbutton:focus-visible {\n    outline: 4px auto -webkit-focus-ring-color;\n}"
+        }
+    ]
+}

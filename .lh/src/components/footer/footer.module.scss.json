@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/components/footer/footer.module.scss",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1702841978123,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1702841996111,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,7 @@\n .root {\n }\n \n-.footer_wrap {\n-}\n \n .wrap {\n   height: 13rem;\n   background: linear-gradient(180deg, rgba(27, 27, 27, 0) 0%, rgba(27, 27, 27, 0.7) 100%);\n"
+                },
+                {
+                    "date": 1702842030598,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,9 @@\n .root {\n }\n \n .wrap {\n+    display: grid;\n+    grid-template-columns: 1fr 1f 1fr;\n   height: 13rem;\n   background: linear-gradient(180deg, rgba(27, 27, 27, 0) 0%, rgba(27, 27, 27, 0.7) 100%);\n }\n"
+                }
+            ],
+            "date": 1702841978123,
+            "name": "Commit-0",
+            "content": ".root {}\n\n.footer_wrap {}\n\n.wrap {\n    height: 13rem;\n    background: linear-gradient(180deg, rgba(27, 27, 27, 0.00) 0%, rgba(27, 27, 27, 0.70) 100%);\n}"
+        }
+    ]
+}

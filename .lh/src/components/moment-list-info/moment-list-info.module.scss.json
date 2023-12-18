@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/components/moment-list-info/moment-list-info.module.scss",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1702470603756,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1702470603755,
+            "name": "Commit-0",
+            "content": ".root {\n    color: white;\n}\n"
+        }
+    ]
+}

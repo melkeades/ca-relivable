@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/services/use-screen-gsap.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1702865141407,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1702865203999,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,31 +1,34 @@\n-function useScreenG{ return useGSAP(\r\n+import gsap from \"gsap\";\r\n+import { useGSAP } from \"@gsap/react\";\r\n+import { screenS } from \"../App\";\r\n+function useScreenG(ref){ return useGSAP(\r\n         () => {\r\n         const active = screenS.value === 'home';\r\n         gsap.fromTo(\r\n-                rootRef.current,\r\n+                ref.current,\r\n                 { opacity: active ? 0 : 1 },\r\n                 {\r\n opacity: active ? 1 : 0,\r\n onStart() {\r\n if (active) {\r\n console.log('out');\r\n-rootRef.current?.classList.remove('off');\r\n-rootRef.current?.classList.remove('out');\r\n+ref.current?.classList.remove('off');\r\n+ref.current?.classList.remove('out');\r\n } else {\r\n-rootRef.current?.classList.add('out');\r\n+ref.current?.classList.add('out');\r\n }\r\n },\r\n onComplete() {\r\n if (!active) {\r\n console.log('off');\r\n-rootRef.current?.classList.add('off');\r\n+ref.current?.classList.add('off');\r\n } else {\r\n }\r\n },\r\n     // onStartParams: [active],\r\n     }\r\n );\r\n },\r\n-{ dependencies: [screenS.value], scope: rootRef }\r\n+{ dependencies: [screenS.value], scope: ref }\r\n );\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702865241189,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import gsap from 'gsap';\r\n import { useGSAP } from '@gsap/react';\r\n import { screenS } from '../App';\r\n-function useScreenG(ref) {\r\n+function useScreenG(ref:React.RefObject<HTMLElement>) {\r\n     return useGSAP(\r\n         () => {\r\n             const active = screenS.value === 'home';\r\n             gsap.fromTo(\r\n"
+                },
+                {
+                    "date": 1702865258819,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import gsap from 'gsap';\r\n import { useGSAP } from '@gsap/react';\r\n import { screenS } from '../App';\r\n-function useScreenG(ref: React.RefObject<HTMLElement>) {\r\n+export default function useScreenG(ref: React.RefObject<HTMLElement>) {\r\n     return useGSAP(\r\n         () => {\r\n             const active = screenS.value === 'home';\r\n             gsap.fromTo(\r\n"
+                }
+            ],
+            "date": 1702865141407,
+            "name": "Commit-0",
+            "content": "function useScreenG{ return useGSAP(\r\n        () => {\r\n        const active = screenS.value === 'home';\r\n        gsap.fromTo(\r\n                rootRef.current,\r\n                { opacity: active ? 0 : 1 },\r\n                {\r\nopacity: active ? 1 : 0,\r\nonStart() {\r\nif (active) {\r\nconsole.log('out');\r\nrootRef.current?.classList.remove('off');\r\nrootRef.current?.classList.remove('out');\r\n} else {\r\nrootRef.current?.classList.add('out');\r\n}\r\n},\r\nonComplete() {\r\nif (!active) {\r\nconsole.log('off');\r\nrootRef.current?.classList.add('off');\r\n} else {\r\n}\r\n},\r\n    // onStartParams: [active],\r\n    }\r\n);\r\n},\r\n{ dependencies: [screenS.value], scope: rootRef }\r\n);\r\n}"
+        }
+    ]
+}

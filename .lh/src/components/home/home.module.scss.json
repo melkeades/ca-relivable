@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/components/home/home.module.scss",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1702467755556,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1702467966585,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n .root {\n }\n \n .home-moment-wrap {\n+    position: absolute;\n }\n \n .home {\n }\n"
+                },
+                {
+                    "date": 1702467973241,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n }\n \n .home-moment-wrap {\n   position: absolute;\n+  inset: 0;\n }\n \n .home {\n }\n"
+                }
+            ],
+            "date": 1702467755556,
+            "name": "Commit-0",
+            "content": ".root {\n}\n\n.home-moment-wrap {}\n\n.home {}"
+        }
+    ]
+}

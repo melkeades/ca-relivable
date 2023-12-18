@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/components/gallery/gallery.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1702673704115,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1702692128961,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n import styles from './gallery.module.scss';\n import { useRef } from 'react';\n import { GalleryStack } from '../gallery-stack/gallery-stack';\n import { GalleryList } from '../gallery-list/gallery-list';\n+import { GalleryListOpen } from '../gallery-list-open/gallery-list-open';\n \n export interface GalleryProps {\n     className?: string;\n }\n@@ -17,9 +18,10 @@\n     const contRef = useRef<HTMLDivElement>(null);\n     return (\n         <div className={classNames(styles.root, className, styles.gallery)}>\n             <div className={styles.gallery__window}>\n-                <GalleryList />\n+                {/* <GalleryList /> */}\n+                <GalleryListOpen />\n             </div>\n             <div className=\"bg-wrap\">\n                 <img src=\"../img/bg.webp\" alt=\"\" className={styles['gallery__bg-img']} />\n             </div>\n"
+                },
+                {
+                    "date": 1702785920426,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,10 +18,10 @@\n     const contRef = useRef<HTMLDivElement>(null);\n     return (\n         <div className={classNames(styles.root, className, styles.gallery)}>\n             <div className={styles.gallery__window}>\n-                <GalleryList />\n-                {/* <GalleryListOpen /> */}\n+                {/* <GalleryList /> */}\n+                <GalleryListOpen />\n             </div>\n             <div className=\"bg-wrap\">\n                 <img src=\"../img/bg.webp\" alt=\"\" className={styles['gallery__bg-img']} />\n             </div>\n"
+                }
+            ],
+            "date": 1702673704115,
+            "name": "Commit-0",
+            "content": "import classNames from 'classnames';\nimport styles from './gallery.module.scss';\nimport { useRef } from 'react'\nimport { GalleryStack } from '../gallery-stack/gallery-stack';\nimport { GalleryList } from '../gallery-list/gallery-list';\n\nexport interface GalleryProps {\n    className?: string;\n}\n\n/**\n * This component was created using Codux's Default new component template.\n * To create custom component templates, see https://help.codux.com/kb/en/article/kb16522\n */\n\nexport const Gallery = ({ className }: GalleryProps) => {\n    const contRef = useRef<HTMLDivElement>(null)\n    return <div className={classNames(styles.root, className, styles.gallery)}>\n        \n            <div className={styles.gallery__window}><GalleryList/></div>\n        <div className=\"bg-wrap\">\n            <img\n                src=\"../img/bg.webp\"\n                alt=\"\"\n                className={styles['gallery__bg-img']}\n            /></div>\n    </div>;\n};\n"
+        }
+    ]
+}

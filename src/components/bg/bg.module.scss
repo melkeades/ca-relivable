@@ -1,0 +1,25 @@
+.root {
+}
+
+.bg {
+  position: fixed;
+  inset: 0;
+  background-color: black;
+}
+.bg-wrap {
+  position: fixed;
+  inset: 0;
+  background-color: black;
+}
+
+.bg-img {
+  width: 100%;
+  height: 160vh;
+  opacity: 0.4;
+  //   background-image: url('../img/bg.webp');
+  //   background-position: 50%;
+  //   background-size: cover;
+  //   background-attachment: scroll;
+  //   background-origin: padding-box;
+  //   background-clip: border-box;opacity:0.8;opacity:0;opacity:0;opacity:0;opacity:0.4;
+}

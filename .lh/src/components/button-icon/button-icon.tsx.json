@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/components/button-icon/button-icon.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1702833493889,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1702833503224,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n export const ButtonIcon = ({ className, icon = 'dots' }: ButtonIconProps) => {\n     return (\n         <div className={classNames(styles.root, className)}>\n             <div className=\"btn-ico\">\n-                <img src={`../img/${icon}.svg`} alt=\"\" className={styles.ico} />\n+                <img src={`../img/ico_${icon}.svg`} alt=\"\" className={styles.ico} />\n             </div>\n         </div>\n     );\n };\n"
+                },
+                {
+                    "date": 1702833619889,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,12 +3,14 @@\n \n export interface ButtonIconProps {\n     className?: string;\n     icon: string;\n+    photo?: string;\n }\n \n-export const ButtonIcon = ({ className, icon = 'dots' }: ButtonIconProps) => {\n+export const ButtonIcon = ({ className, icon = 'dots', photo='' }: ButtonIconProps) => {\n     return (\n+    if\n         <div className={classNames(styles.root, className)}>\n             <div className=\"btn-ico\">\n                 <img src={`../img/ico_${icon}.svg`} alt=\"\" className={styles.ico} />\n             </div>\n"
+                }
+            ],
+            "date": 1702833493889,
+            "name": "Commit-0",
+            "content": "import classNames from 'classnames';\nimport styles from './button-icon.module.scss';\n\nexport interface ButtonIconProps {\n    className?: string;\n    icon: string;\n}\n\nexport const ButtonIcon = ({ className, icon = 'dots' }: ButtonIconProps) => {\n    return <div className={classNames(styles.root, className)}>\n        <div className=\"btn-ico\">\n            <img src={ `../img/${icon}.svg` } alt=\"\" className={styles.ico} />\n        </div></div>;\n};\n"
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/components/button/button.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1702228455691,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1702852073883,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,18 @@\n import classNames from 'classnames';\n import styles from './button.module.scss';\n \n export interface ButtonProps {\n-    label: string;\n+    label?: string;\n     className?: string;\n-    ico: string;\n+    ico?: string;\n+    handle:React.MouseEventHandler;\n }\n \n-export const Button = ({ label, className, ico }: ButtonProps) => {\n-    return <button className={className}>\n-        {label}<img src={ico} alt=\"\" className=\"button__ico \" /></button>;\n+export const Button = ({ label = 'button', className, ico = 'play', handle }: ButtonProps) => {\n+    return (\n+        <button className={className} onClick={handle}>\n+            {label}\n+            <img src={'../img/ico_' + ico + '.svg'} alt=\"\" className=\"button__ico \" />\n+        </button>\n+    );\n };\n"
+                },
+                {
+                    "date": 1702866746768,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n export interface ButtonProps {\n     label?: string;\n     className?: string;\n     ico?: string;\n-    handle: React.MouseEventHandler;\n+    handle?: React.MouseEventHandler;\n }\n \n export const Button = ({ label = 'button', className, ico = 'play', handle }: ButtonProps) => {\n     return (\n"
+                }
+            ],
+            "date": 1702228455691,
+            "name": "Commit-0",
+            "content": "import classNames from 'classnames';\nimport styles from './button.module.scss';\n\nexport interface ButtonProps {\n    label: string;\n    className?: string;\n    ico: string;\n}\n\nexport const Button = ({ label, className, ico }: ButtonProps) => {\n    return <button className={className}>\n        {label}<img src={ico} alt=\"\" className=\"button__ico \" /></button>;\n};\n"
+        }
+    ]
+}

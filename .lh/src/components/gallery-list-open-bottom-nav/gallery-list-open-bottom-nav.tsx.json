@@ -1,0 +1,38 @@
+{
+    "sourceFile": "src/components/gallery-list-open-bottom-nav/gallery-list-open-bottom-nav.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1702696686084,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1702742434516,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n import classNames from 'classnames';\n import styles from './gallery-list-open-bottom-nav.module.scss';\n import { GalleryStack } from '../gallery-stack/gallery-stack';\n+import { motion, useViewportScroll, useTransform, useSpring } from 'framer-motion';\n \n export interface GalleryListOpenBottomNavProps {\n     className?: string;\n }\n@@ -13,13 +14,13 @@\n                 <div className={styles['nav__title-wrap']}>\n                     <h5>Heading 5</h5>\n                     <div className={styles.nav__arrow} />\n                 </div>\n-                <div className={styles.nav__list}>\n+                <motion.div drag className={styles.nav__list}>\n                     {[...Array(9)].map((stack, index) => (\n                         <GalleryStack key={index} stackName={'index'} />\n                     ))}\n-                </div>\n+                </motion.div>\n             </div>\n         </div>\n     );\n };\n"
+                },
+                {
+                    "date": 1702743044383,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import classNames from 'classnames';\n import styles from './gallery-list-open-bottom-nav.module.scss';\n import { GalleryStack } from '../gallery-stack/gallery-stack';\n-import { motion, useViewportScroll, useTransform, useSpring } from 'framer-motion';\n+import { motion, useTransform, useScroll } from 'framer-motion';\n \n export interface GalleryListOpenBottomNavProps {\n     className?: string;\n }\n"
+                },
+                {
+                    "date": 1702743103175,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,16 +1,20 @@\n import classNames from 'classnames';\n-import styles from './gallery-list-open-bottom-nav.module.scss';\n+import styles from './gallery-list-open-bottom-nav.moule.scss';\n import { GalleryStack } from '../gallery-stack/gallery-stack';\n import { motion, useTransform, useScroll } from 'framer-motion';\n+import { useRef } from 'react';\n \n export interface GalleryListOpenBottomNavProps {\n     className?: string;\n }\n \n export const GalleryListOpenBottomNav = ({ className }: GalleryListOpenBottomNavProps) => {\n-    return (\n-        <div className={classNames(styles.root, className)}>\n+    const carouselRef = useRef<HTMLDivElement>(null);\n+    useRef\n+        return (\n+\n+                <iv className={classNames(styles.root, className)}>\n             <div className={styles['nav-wrap']}>\n                 <div className={styles['nav__title-wrap']}>\n                     <h5>Heading 5</h5>\n                     <div className={styles.nav__arrow} />\n"
+                },
+                {
+                    "date": 1702743174597,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,16 +9,19 @@\n }\n \n export const GalleryListOpenBottomNav = ({ className }: GalleryListOpenBottomNavProps) => {\n     const carouselRef = useRef<HTMLDivElement>(null);\n+      const { scrollYProgress } = useScroll({\n+          target: carouselRef,\n+      });\n     return (\n         <div className={classNames(styles.root, className)}>\n             <div className={styles['nav-wrap']}>\n                 <div className={styles['nav__title-wrap']}>\n                     <h5>Heading 5</h5>\n                     <div className={styles.nav__arrow} />\n                 </div>\n-                <motion.div drag className={styles.nav__list}>\n+                <motion.div drag ref={carouselRef} className={styles.nav__list}>\n                     {[...Array(9)].map((stack, index) => (\n                         <GalleryStack key={index} stackName={'index'} />\n                     ))}\n                 </motion.div>\n"
+                },
+                {
+                    "date": 1702743317728,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,16 +12,18 @@\n     const carouselRef = useRef<HTMLDivElement>(null);\n     const { scrollYProgress } = useScroll({\n         target: carouselRef,\n     });\n+    const x = useTransform(scrollYProgress, [0, 1], ['1%', '-95%']);\n+\n     return (\n         <div className={classNames(styles.root, className)}>\n-            <div className={styles['nav-wrap']}>\n+            <div ref={carouselRef} className={styles['nav-wrap']}>\n                 <div className={styles['nav__title-wrap']}>\n                     <h5>Heading 5</h5>\n                     <div className={styles.nav__arrow} />\n                 </div>\n-                <motion.div drag ref={carouselRef} className={styles.nav__list}>\n+                <motion.div drag style={{ x }} className={styles.nav__list}>\n                     {[...Array(9)].map((stack, index) => (\n                         <GalleryStack key={index} stackName={'index'} />\n                     ))}\n                 </motion.div>\n"
+                }
+            ],
+            "date": 1702696686084,
+            "name": "Commit-0",
+            "content": "import classNames from 'classnames';\nimport styles from './gallery-list-open-bottom-nav.module.scss';\nimport { GalleryStack } from '../gallery-stack/gallery-stack';\n\nexport interface GalleryListOpenBottomNavProps {\n    className?: string;\n}\n\nexport const GalleryListOpenBottomNav = ({ className }: GalleryListOpenBottomNavProps) => {\n    return (\n        <div className={classNames(styles.root, className)}>\n            <div className={styles['nav-wrap']}>\n                <div className={styles['nav__title-wrap']}>\n                    <h5>Heading 5</h5>\n                    <div className={styles.nav__arrow} />\n                </div>\n                <div className={styles.nav__list}>\n                    {[...Array(9)].map((stack, index) => (\n                        <GalleryStack key={index} stackName={'index'} />\n                    ))}\n                </div>\n            </div>\n        </div>\n    );\n};\n"
+        }
+    ]
+}

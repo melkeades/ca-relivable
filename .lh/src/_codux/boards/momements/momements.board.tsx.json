@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/_codux/boards/momements/momements.board.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1702461232299,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1702461232299,
+            "name": "Commit-0",
+            "content": "import { createBoard } from '@wixc3/react-board';\nimport { MomentList } from '../../../components/moment-list/moment-list';\n\nexport default createBoard({\n    name: 'MomentList',\n    Board: () => <MomentList />,\n    isSnippet: true,\n});\n"
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/components/gallery/gallery.module.scss",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1702662200049,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1702662239201,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \n .gallery {\n }\n \n-.bg-img {\n+.gallery__bg-img {\n   width: 100%;\n   height: 100vh;\n   opacity: 0.4;\n }\n"
+                },
+                {
+                    "date": 1702662325351,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,12 @@\n .root {\n }\n-\n+.gallery__window{\n+    border-radius: 1.25rem;\n+border: 1.5px solid rgba(255, 255, 255, 0.57);\n+background: linear-gradient(180deg, rgba(0, 0, 0, 0.40) 0%, rgba(0, 0, 0, 0.04) 100%);\n+backdrop-filter: blur(52px);\n+}\n .gallery {\n }\n \n .gallery__bg-img {\n"
+                }
+            ],
+            "date": 1702662200049,
+            "name": "Commit-0",
+            "content": ".root {}\n\n.gallery {}\n\n.bg-img {\n  width: 100%;\n  height: 100vh;\n  opacity: 0.4;\n}"
+        }
+    ]
+}

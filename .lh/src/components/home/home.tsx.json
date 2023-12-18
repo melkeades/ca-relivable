@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/components/home/home.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1702460938590,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1702460947856,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import classNames from 'classnames';\n import styles from './home.module.scss';\n-import { HomeInfo } from '../home-info/moment-home-info';\n+import { HomeInfo } from '../moment-home-info/moment-home-info';\n import { Header } from '../header/header';\n import { Moment } from '../moment/moment';\n \n export interface HomeProps {\n"
+                },
+                {
+                    "date": 1702461015188,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import classNames from 'classnames';\n import styles from './home.module.scss';\n-import { HomeInfo } from '../moment-home-info/moment-home-info';\n+import { MomentHomeInfo } from '../moment-home-info/moment-home-info';\n import { Header } from '../header/header';\n import { Moment } from '../moment/moment';\n \n export interface HomeProps {\n@@ -16,9 +16,9 @@\n export const Home = ({ className }: HomeProps) => {\n     return (\n         <div className={classNames(styles.root, className)}>\n             <Header screen=\"home\" />\n-            <HomeInfo />\n+            <MomentHomeInfo />\n             <Moment />\n         </div>\n     );\n };\n"
+                },
+                {
+                    "date": 1702467782820,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,16 +8,12 @@\n export interface HomeProps {\n     className?: string;\n }\n \n-/**\n- * This component was created using Codux's Default new component template.\n- * To create custom component templates, see https://help.codux.com/kb/en/article/kb16522\n- */\n \n export const Home = ({ className }: HomeProps) => {\n     return (\n-        <div className={classNames(styles.home, styles.root)}>\n+        <div className={classNames(styles.home )}>\n             <Header screen=\"home\" />\n             <MomentHomeInfo />\n             <div className={styles['home-moment-wrap']}>\n                 <Moment />\n"
+                }
+            ],
+            "date": 1702460938590,
+            "name": "Commit-0",
+            "content": "import classNames from 'classnames';\nimport styles from './home.module.scss';\nimport { HomeInfo } from '../home-info/moment-home-info';\nimport { Header } from '../header/header';\nimport { Moment } from '../moment/moment';\n\nexport interface HomeProps {\n    className?: string;\n}\n\n/**\n * This component was created using Codux's Default new component template.\n * To create custom component templates, see https://help.codux.com/kb/en/article/kb16522\n */\n\nexport const Home = ({ className }: HomeProps) => {\n    return <div className={classNames(styles.root, className)}>\n        <Header screen=\"home\" />\n        <HomeInfo />\n        <Moment />\n    </div>;\n};\n"
+        }
+    ]
+}

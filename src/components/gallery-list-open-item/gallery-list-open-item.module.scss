@@ -1,0 +1,150 @@
+.root {
+  position: relative;
+  // width: max-content;
+  height: 100%;
+  display: flex;
+  align-items: end;
+  --ease: all 400ms ease;
+}
+
+.item-tl {
+  aspect-ratio: 1.27/1;
+  clip-path: url(#maskTopLeft);
+  .meta {
+    top: 15%;
+    rotate: 1.75deg;
+  }
+  .title {
+    rotate: 2.5deg;
+  }
+}
+
+.item-tm {
+  aspect-ratio: 1.39/1;
+  clip-path: url(#maskTopMiddle);
+  .meta {
+    top: 10%;
+    rotate: 0deg;
+  }
+  .title {
+    rotate: 0deg;
+  }
+}
+
+.item-tr {
+  aspect-ratio: 1.28/1;
+  clip-path: url(#maskTopRight);
+  align-self: start;
+  .meta {
+    top: 10%;
+    rotate: -4deg;
+  }
+  .title {
+    rotate: -2.3deg;
+  }
+}
+
+.item-bl {
+  aspect-ratio: 1.27/1;
+  clip-path: url(#maskBottomLeft);
+  align-self: start;
+  .meta {
+    top: 7%;
+    rotate: 0deg;
+  }
+  .title {
+    rotate: -4.9deg;
+  }
+}
+
+.item-bm {
+  aspect-ratio: 1.39/1;
+  clip-path: url(#maskBottomMiddle);
+  align-self: start;
+  .meta {
+    top: 8%;
+    rotate: 0deg;
+  }
+  .title {
+    rotate: 0deg;
+  }
+}
+
+.item-br {
+  aspect-ratio: 1.28/1;
+  clip-path: url(#maskBottomRight);
+  .meta {
+    top: 8%;
+    rotate: 0deg;
+  }
+  .title {
+    rotate: 0deg;
+    bottom: 15%;
+  }
+}
+
+.item-dim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.58) 100%);
+  // background-size: cover;
+  background-repeat: no-repeat;
+  // background-position: center 175%;
+  // background-size: 1% 100%;
+  z-index: 20;
+  transition: var(--ease);
+}
+
+.item {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+.item-wrap {
+  // max-width: 20rem !important;
+  position: relative;
+  cursor: pointer;
+  &:hover {
+    .item-dim {
+      background-position-y: 300px;
+
+      // opacity: 0;
+    }
+    .title {
+      opacity: 0;
+    }
+    .meta {
+      & > div {
+        filter: blur(5px) opacity(0);
+      }
+      & > img {
+        opacity: 0;
+      }
+    }
+    // opacity: 0.5;
+  }
+}
+.meta {
+  position: absolute;
+  top: 10%;
+  right: 5%;
+  display: flex;
+  z-index: 40;
+  transition: var(--ease);
+  & > div,
+  & > img {
+    transition: all 300ms;
+  }
+}
+.title {
+  position: absolute;
+  bottom: 7%;
+  left: 7%;
+  font-size: 1.5rem;
+  line-height: 1.45;
+  font-weight: 500;
+  color: white;
+  z-index: 40;
+  transition: var(--ease);
+}

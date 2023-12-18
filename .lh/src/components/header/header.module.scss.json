@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/components/header/header.module.scss",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1702247754792,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1702247773489,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,15 @@\n-.root {}\n+.root {\n+}\n \n .header {\n-    position: fixed;\n-    top: 0px;\n-    left: 0px;\n-    right: 0px;\n-    padding-top: 2.5rem;\n-    padding-right: 3rem;\n-    padding-left: 3rem;\n-    height: 15rem;\n-    background-color: transparent;\n\\ No newline at end of file\n-    background: linear-gradient(180deg, rgba(27, 27, 27, 0.70) 0%, rgba(27, 27, 27, 0.00) 100%);\n-}\n+  position: fixed;\n+  top: 0px;\n+  left: 0px;\n+  right: 0px;\n+  padding-top: 2.5rem;\n+  padding-right: 3rem;\n+  padding-left: 3rem;\n+  height: 15rem;\n+  background-color: transparent;\n+  background: linear-gradient(180deg, rgba(27, 27, 27, 0.7) 0%, rgba(27, 27, 27, 0) 100%);\n+}\n"
+                },
+                {
+                    "date": 1702831509305,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,16 +8,11 @@\n     padding-top: 2.5rem;\n     padding-right: 3rem;\n     padding-left: 3rem;\n     height: 15rem;\n-    background-color: transparent;\n+    // background-color: transparent;\n     background: linear-gradient(180deg, rgba(27, 27, 27, 0.7) 0%, rgba(27, 27, 27, 0) 100%);\n     z-index: 1500;\n-    display: grid;\n-    grid-template-columns: 1fr 1fr 1fr;\n }\n-\n-.left {}\n-\n-.center {}\n-\n\\ No newline at end of file\n-.right {}\n+.logo{\n+    width: 9rem;\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702831547685,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,5 +19,8 @@\n .left {}\n \n .center {}\n \n-.right {}\n\\ No newline at end of file\n+.right {}\n+.logo{\n+    width: 9rem;\n+}\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1702247754792,
+            "name": "Commit-0",
+            "content": ".root {}\n\n.header {\n    position: fixed;\n    top: 0px;\n    left: 0px;\n    right: 0px;\n    padding-top: 2.5rem;\n    padding-right: 3rem;\n    padding-left: 3rem;\n    height: 15rem;\n    background-color: transparent;\n    background: linear-gradient(180deg, rgba(27, 27, 27, 0.70) 0%, rgba(27, 27, 27, 0.00) 100%);\n}"
+        }
+    ]
+}

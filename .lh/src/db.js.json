@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/db.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1702855776185,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1702855806611,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,5 +10,6 @@\n export const metaDb = {\r\n     names: 'Casey &Peter',\r\n     description:\r\n         'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',\r\n+    profileImage: 'profile.webp',\r\n };\r\n"
+                },
+                {
+                    "date": 1702855918350,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,9 @@\n export const mediaDb = [\r\n-    { type: 'video', src: 'v1.mp4', thumb: 'v1.jpg', name: 'Moment Name a' },\r\n-    { type: 'video', src: 'v2.mp4', thumb: 'v2.jpg', name: 'Moment Name a' },\r\n-    { type: 'image', src: 'w1.webp', thumb: '', name: 'Moment Name b' },\r\n-    // { type: 'image', src: 'w2.webp', thumb: '', name: 'Moment Name b' },\r\n-    { type: 'image', src: 'w3.webp', thumb: '', name: 'Moment Name c' },\r\n-    // { type: 'image', src: 'w4.webp', thumb: '', name: 'Moment Name c' },\r\n+    { type: 'video', src: 'v1.mp4', thumb: 'v1.jpg', moment: 'Moment Name a', favorite: true },\r\n+    { type: 'video', src: 'v2.mp4', thumb: 'v2.jpg', moment: 'Moment Name a', favorite: false },\r\n+    { type: 'image', src: 'w1.webp', thumb: '', moment: 'Moment Name b', favorite: true },\r\n+    { type: 'image', src: 'w3.webp', thumb: '', moment: 'Moment Name c', favorite: false },\r\n ];\r\n \r\n export const metaDb = {\r\n     names: 'Casey &Peter',\r\n"
+                }
+            ],
+            "date": 1702855776185,
+            "name": "Commit-0",
+            "content": "export const mediaDb = [\r\n  { type: 'video', src: 'v1.mp4', thumb: 'v1.jpg', name: 'Moment Name a' },\r\n  { type: 'video', src: 'v2.mp4', thumb: 'v2.jpg', name: 'Moment Name a' },\r\n  { type: 'image', src: 'w1.webp', thumb: '', name: 'Moment Name b' },\r\n  // { type: 'image', src: 'w2.webp', thumb: '', name: 'Moment Name b' },\r\n  { type: 'image', src: 'w3.webp', thumb: '', name: 'Moment Name c' },\r\n  // { type: 'image', src: 'w4.webp', thumb: '', name: 'Moment Name c' },\r\n]\r\n\r\nexport const metaDb = {\r\n    names: 'Casey &Peter',\r\n    description:\r\n        'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',\r\n};"
+        }
+    ]
+}

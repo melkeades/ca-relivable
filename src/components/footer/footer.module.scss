@@ -1,0 +1,32 @@
+.root {}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1500;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 13rem;
+    background: linear-gradient(180deg, rgba(27, 27, 27, 0) 0%, rgba(27, 27, 27, 0.7) 100%);
+    padding: 0 3rem 2.5rem;
+    align-content: end;
+}
+
+.left,
+.center,
+.right {
+    display: flex;
+    gap: 1rem;
+}
+
+.left {}
+
+.center {
+    justify-content: center;
+}
+
+.right {
+    justify-content: end;
+}

@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/components/xr/xr.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1702873150797,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1702873150797,
+            "name": "Commit-0",
+            "content": "import React, { FC, useEffect, useState, useCallback } from 'react';\r\nimport { OrbitControls, useTexture } from '@react-three/drei';\r\nimport { Canvas } from '@react-three/fiber';\r\nimport { XRCanvas, PointerHand, PointerController } from '@coconut-xr/natuerlich/defaults';\r\nimport { RootText, clippingEvents } from '@coconut-xr/koestlich';\r\nimport { getInputSourceId } from '@coconut-xr/natuerlich';\r\nimport { useSessionSupported } from '@coconut-xr/natuerlich/react';\r\nimport { XWebPointers } from '@coconut-xr/xinteraction/react';\r\nimport {\r\n    useEnterXR,\r\n    NonImmersiveCamera,\r\n    ImmersiveSessionOrigin,\r\n    useInputSources,\r\n    XR,\r\n    useXR,\r\n} from '@coconut-xr/natuerlich/react';\r\nimport Glass from './Glass';\r\nimport Hud from './Hud';\r\nimport Dome from './Dome';\r\n\r\nconst mediaPath = '/360/';\r\nconst sessionOptions = {\r\n    requiredFeatures: ['local-floor'],\r\n};\r\n"
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/components/moment-home-info/moment-home-info.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1702461015190,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1702461089926,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,27 +1,27 @@\n import classNames from 'classnames';\n-import styles from './home-info.module.scss';\n+import styles from './moment-home-info.module.scss';\n import { ButtonWrap } from '../button-wrap/button-wrap';\n import { Button } from '../button/button';\n \n-export interface HomeInfoProps {\n+export interface MomentHomeInfoProps {\n     className?: string;\n }\n \n /**\n  * This component was created using Codux's Default new component template.\n  * To create custom component templates, see https://help.codux.com/kb/en/article/kb16522\n  */\n-export const MomentHomeInfo = ({ className }: HomeInfoProps) => {\n+export const MomentHomeInfo = ({ className }: MomentHomeInfoProps) => {\n     return (\n-        <div className={styles['home-info-wrap']}>\n+        <div className={styles['moment-home-info-wrap']}>\n             <div className=\"info\">\n                 <h1 className={styles.h1}>\n                     Casey\n                     <br />\n                     &amp;Peter\n                 </h1>\n-                <p className={styles['home-info__p']}>\n+                <p className={styles['moment-home-info__p']}>\n                     Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus\n                     mus.\n                 </p>\n                 <ButtonWrap>\n"
+                },
+                {
+                    "date": 1702461453305,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,12 +6,8 @@\n export interface MomentHomeInfoProps {\n     className?: string;\n }\n \n-/**\n- * This component was created using Codux's Default new component template.\n- * To create custom component templates, see https://help.codux.com/kb/en/article/kb16522\n- */\n export const MomentHomeInfo = ({ className }: MomentHomeInfoProps) => {\n     return (\n         <div className={styles['moment-home-info-wrap']}>\n             <div className=\"info\">\n"
+                }
+            ],
+            "date": 1702461015190,
+            "name": "Commit-0",
+            "content": "import classNames from 'classnames';\nimport styles from './home-info.module.scss';\nimport { ButtonWrap } from '../button-wrap/button-wrap';\nimport { Button } from '../button/button';\n\nexport interface HomeInfoProps {\n    className?: string;\n}\n\n/**\n * This component was created using Codux's Default new component template.\n * To create custom component templates, see https://help.codux.com/kb/en/article/kb16522\n */\nexport const MomentHomeInfo = ({ className }: HomeInfoProps) => {\n    return <div className={styles['home-info-wrap']}>\n        <div className=\"info\">\n            <h1 className={styles.h1}>Casey<br />&amp;Peter</h1>\n            <p className={styles['home-info__p']}>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>\n            <ButtonWrap >\n                <Button ico=\"play\" label=\"Relive\" />\n                <Button label=\"Explore\" className=\"button--outline\" ico={'folder'} />\n            </ButtonWrap>\n        </div></div>;\n};\n"
+        }
+    ]
+}

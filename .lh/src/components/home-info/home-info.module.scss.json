@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/components/home-info/home-info.module.scss",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1702243260931,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1702246136381,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,12 +5,13 @@\n .home-info__p {\n     font-size: 1.125rem;\n     font-weight: 300;\n     line-height: 1.45;\n-    padding-right: 9rem;\n }\n \n-.info-wrap {}\n-\n-.info {}\n-\n-.info {}\n\\ No newline at end of file\n+.home-info-wrap {\n+  color: white;\n+  background: linear-gradient(210deg, rgba(0, 0, 0, 0) 18.35%, rgba(27, 27, 27, 0.66) 69.12%);\n+  justify-content: start;\n+  align-content: end;\n+  padding: 4.5rem 5rem 5rem 4.5rem;\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702246143271,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,16 +1,17 @@\n .root {\n-    color: var(--color-white);\n+  color: var(--color-white);\n }\n \n .home-info__p {\n-    font-size: 1.125rem;\n-    font-weight: 300;\n-    line-height: 1.45;\n-    padding-right: 9rem;\n+  font-size: 1.125rem;\n+  font-weight: 300;\n+  line-height: 1.45;\n }\n \n-.info-wrap {}\n\\ No newline at end of file\n-\n-.info {}\n-\n-.info {}\n+.home-info-wrap {\n+  color: white;\n+  background: linear-gradient(210deg, rgba(0, 0, 0, 0) 18.35%, rgba(27, 27, 27, 0.66) 69.12%);\n+  justify-content: start;\n+  align-content: end;\n+  padding: 4.5rem 5rem 5rem 4.5rem;\n+}\n"
+                }
+            ],
+            "date": 1702243260931,
+            "name": "Commit-0",
+            "content": ".root {}\n"
+        }
+    ]
+}

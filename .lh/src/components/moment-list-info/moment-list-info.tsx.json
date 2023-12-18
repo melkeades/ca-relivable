@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/components/moment-list-info/moment-list-info.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1702470509052,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1702470583559,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,10 @@\n export const MomentListInfo = ({ className }: MomentListInfoProps) => {\n     return (\n         <div className={classNames(styles.root, className)}>\n             <div className=\"info\">\n-                <h3 className={styles.h1}>Casey &amp;Peter</h3>\n+                <h2 className={styles.h2}>Casey &amp;Peter</h2>\n+                <h3 className={styles.h3}>Casey &amp;Peter</h3>\n                 <p className={styles['moment-home-info__p']}>\n                     Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus\n                     mus.\n                 </p>\n"
+                },
+                {
+                    "date": 1702470588904,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n export const MomentListInfo = ({ className }: MomentListInfoProps) => {\n     return (\n         <div className={classNames(styles.root, className)}>\n             <div className=\"info\">\n-                <h2 className={styles.h2}>Casey &amp;Peter</h2>\n+                <h2 className={styles.h2}>0.</h2>\n                 <h3 className={styles.h3}>Casey &amp;Peter</h3>\n                 <p className={styles['moment-home-info__p']}>\n                     Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus\n                     mus.\n"
+                }
+            ],
+            "date": 1702470509052,
+            "name": "Commit-0",
+            "content": "import classNames from 'classnames';\nimport styles from './moment-list-info.module.scss';\nimport { ButtonWrap } from '../button-wrap/button-wrap';\nimport { Button } from '../button/button';\n\nexport interface MomentListInfoProps {\n    className?: string;\n}\n\n/**\n * This component was created using Codux's Default new component template.\n * To create custom component templates, see https://help.codux.com/kb/en/article/kb16522\n */\nexport const MomentListInfo = ({ className }: MomentListInfoProps) => {\n    return <div className={classNames(styles.root, className)}>\n        <div className=\"info\">\n            <h3 className={styles.h1}>\n                Casey\n                &amp;Peter\n            </h3>\n            <p className={styles['moment-home-info__p']}>\n                Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus\n                mus.\n            </p>\n            <ButtonWrap>\n                <Button ico=\"play\" label=\"Relive\" />\n\n            </ButtonWrap>\n        </div>\n    </div>;\n};\n"
+        }
+    ]
+}

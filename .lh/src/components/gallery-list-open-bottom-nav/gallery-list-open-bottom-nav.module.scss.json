@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/components/gallery-list-open-bottom-nav/gallery-list-open-bottom-nav.module.scss",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1702696833882,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1702696863076,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,9 @@\n   position: fixed;\n   left: 0;\n   right: 0;\n   bottom: 0;\n+  height: 27rem;\n }\n \n .nav__title-wrap {\n }\n"
+                },
+                {
+                    "date": 1702696880636,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,5 +15,6 @@\n .nav__arrow {\n }\n \n .nav__list {\n+    height: 100%;\n }\n"
+                }
+            ],
+            "date": 1702696833882,
+            "name": "Commit-0",
+            "content": ".root {}\n\n.nav-wrap {\n    position: fixed;\n    left: 0;\n    right: 0;\n    bottom: 0;\n}\n\n.nav__title-wrap {}\n\n.nav__arrow {}\n\n.nav__list {}"
+        }
+    ]
+}

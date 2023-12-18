@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/components/header/header.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1702247425804,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1702247517006,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,8 +13,10 @@\n export const Header = ({ className, screen }: HeaderProps) => {\n     return (\n         <div className={classNames(styles.root, className, styles.header)}>\n             {screen === 'home' && <p>home</p>}\n-            {screen === 'dash' && <p>dash</p>}\n+            {screen === 'moments' && <p>moments</p>}\n+            {screen === 'explore' && <p>explore</p>}\n+            {screen === 'stack' && <p></p>}\n         </div>\n     );\n };\n"
+                },
+                {
+                    "date": 1702247544169,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,8 +15,9 @@\n         <div className={classNames(styles.root, className, styles.header)}>\n             {screen === 'home' && <p>home</p>}\n             {screen === 'moments' && <p>moments</p>}\n             {screen === 'explore' && <p>explore</p>}\n-            {screen === 'stack' && <p></p>}\n+            {screen === 'stack' && <p>stack</p>}\n+            {screen === 'moment' && <p>moment</p>}\n         </div>\n     );\n };\n"
+                }
+            ],
+            "date": 1702247425804,
+            "name": "Commit-0",
+            "content": "import classNames from 'classnames';\nimport styles from './header.module.scss';\n\nexport interface HeaderProps {\n    className?: string;\n    screen: string;\n}\n\n/**\n * This component was created using Codux's Default new component template.\n * To create custom component templates, see https://help.codux.com/kb/en/article/kb16522\n */\nexport const Header = ({ className, screen }: HeaderProps) => {\n    return <div className={classNames(styles.root, className, styles.header)}>\n    {screen==='home'&& <p>home</p>}\n    {screen==='dash'&& <p>dash</p>}\n    </div>;\n};\n"
+        }
+    ]
+}
