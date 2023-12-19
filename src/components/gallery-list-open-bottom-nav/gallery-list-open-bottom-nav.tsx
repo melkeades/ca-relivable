@@ -3,6 +3,7 @@ import styles from './gallery-list-open-bottom-nav.module.scss';
 import { GalleryStack } from '../gallery-stack/gallery-stack';
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import useScreen from '../../services/use-screen-gsap';
+import { allMoments } from '../../App';
 
 export interface GalleryListOpenBottomNavProps {
     className?: string;
@@ -128,7 +129,7 @@ export const GalleryListOpenBottomNav = ({ className }: GalleryListOpenBottomNav
                         {[...Array(9)].map((stack, index) => (
                             <GalleryStack
                                 key={index}
-                                stackName={'index'}
+                                stackName={allMoments[index]}
                                 className="is--carousel"
                                 style={{ alignItems: 'flex-start' }}
                                 // handle={handleToggle}
