@@ -38,7 +38,7 @@ export default function Xrj({ index = 0, moment = 'favorites' }) {
   const inputSources = useInputSources();
   const [orbitControl, setOrbitControl] = useState(true);
   const [photoIndex, setPhotoIndex] = useState(index);
-  console.log(mediaDb, photoIndex);
+  // console.log(mediaDb, photoIndex);
   useEffect(() => {
     if (screenS.value === 'momentOpen') setPhotoIndex(index);
   }, [index]);

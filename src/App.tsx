@@ -26,6 +26,7 @@ favoriteMoments.forEach((moments, index) => {
     });
 });
 favoriteMoments = favoriteMoments.flat();
+console.log(favoriteMoments);
 
 export const screenS = signal('home');
 export const momentS = signal('favorites');
