@@ -90,7 +90,7 @@ export const GalleryListOpenBottomNav = ({ className }: GalleryListOpenBottomNav
         momentS.value = moment;
         handleToggle(e);
         // screenS.value = 'galleryList';
-        // console.log('asdf');
+        console.log('test');
     };
     useEffect(() => {
         const el = scrollRef.current;
