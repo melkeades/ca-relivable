@@ -346,6 +346,8 @@ button {
   overflow: hidden;
   cursor: pointer;
   transition: all 300ms;
+  -webkit-user-select: none;
+  user-select: none;
   & > img {
     display: flex;
     align-items: center;
