@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import styles from './moment.module.scss';
 // @ts-ignore
 import Xrj from '../xrjs/Xrj';
-import { screenS, momentS } from '../../App';
+import { screenS, momentS, photoIndexS } from '../../App';
 import { useGSAP } from '@gsap/react';
 import { useRef } from 'react';
 import useScreen from '../../services/use-screen-gsap';
@@ -13,7 +13,7 @@ export interface MomentProps {
     moment?: string;
 }
 
-export const Moment = ({ className, photoIndex = 2, moment }: MomentProps) => {
+export const Moment = ({ className, photoIndex, moment }: MomentProps) => {
     const contRef = useRef<HTMLDivElement>(null);
     // useScreen(contRef, ['momentOpen']);
     // console.log(moment);
@@ -21,7 +21,7 @@ export const Moment = ({ className, photoIndex = 2, moment }: MomentProps) => {
     return (
         <div className={classNames(styles.root, className, styles.moment)} ref={contRef}>
             {/* <img src={`/img/img_${photoIndex}.webp`} alt="" className={styles.moment__img} /> */}
-            <Xrj photoIndex={photoIndex} moment={moment} />
+            <Xrj index={photoIndex} moment={moment} />
         </div>
     );
 };

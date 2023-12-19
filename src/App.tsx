@@ -4,7 +4,6 @@ import Classnames from 'classnames';
 import { Header } from './components/header/header';
 import { MomentHomeInfo } from './components/moment-home-info/moment-home-info';
 import { Moment } from './components/moment/moment';
-
 import { Footer } from './components/footer/footer';
 import { Home } from './components/home/home';
 import { signal, effect, computed } from '@preact/signals-react';
@@ -28,11 +27,9 @@ favoriteMoments.forEach((moments, index) => {
 });
 favoriteMoments = favoriteMoments.flat();
 
-// export const state = signal({ screen: 'home' });
-// export const nameS = signal(metaDb.names);
-
 export const screenS = signal('home');
 export const momentS = signal('favorites');
+// export const momentS = signal('favorites');
 // export const favoriteS = computed(() => {
 //     return screenS.value !== 'gallery' && screenS.value !== 'galleryList';
 // });
@@ -40,23 +37,13 @@ export const momentS = signal('favorites');
 export const typeS = signal('');
 export const pathS = signal('');
 export const muteS = signal(true);
-export const photoIndexS = signal(2);
+export const photoIndexS = signal(0);
 
 effect(() => {
     console.log(momentS.value);
 });
-function getState() {
-    // return 'asdfkj';
-}
 
-// export const state = signal({ screen: 'home' });
-
-// effect(() => {
-//     console.log(screenS.value);
-// });
 function App() {
-    const [count, setCount] = useState(0);
-
     return (
         <div className={Classnames(styles.App, styles.root)}>
             <Header names={metaDb.names} />
@@ -64,7 +51,7 @@ function App() {
             <Gallery />
 
             <MomentList />
-            <MomentOpen />
+            <MomentOpen photoIndex={photoIndexS.value} />
         </div>
     );
 }

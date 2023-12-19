@@ -5,7 +5,7 @@ import { GalleryListOpenTabs } from '../gallery-list-open-tabs/gallery-list-open
 import { GalleryListOpenBottomNav } from '../gallery-list-open-bottom-nav/gallery-list-open-bottom-nav';
 import useScreen from '../../services/use-screen-gsap';
 import { useRef } from 'react';
-import { allMoments, momentS, screenS } from '../../App';
+import { allMoments, momentS, screenS, photoIndexS } from '../../App';
 import { mediaDb } from '../../db';
 
 export interface GalleryListOpenProps {
@@ -15,9 +15,12 @@ export interface GalleryListOpenProps {
 export const GalleryListOpen = ({ className }: GalleryListOpenProps) => {
     const contRef = useRef(null);
     useScreen(contRef, ['galleryList']);
-    function handleMoment() {
+    function handleMoment(index: number) {
         screenS.value = 'momentOpen';
-        momentS.value = allMoments[0];
+        photoIndexS.value = index;
+        // console.log(index);
+
+        // momentS.value = allMoments[1];
     }
     return (
         <div className={styles.root} ref={contRef}>
@@ -54,7 +57,7 @@ export const GalleryListOpen = ({ className }: GalleryListOpenProps) => {
                         key={index}
                         index={index}
                         photoIndex={index}
-                        handle={handleMoment}
+                        handle={() => handleMoment(index)}
                         item={item}
                     />
                 ))}

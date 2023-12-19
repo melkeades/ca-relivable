@@ -57,6 +57,7 @@ function VideoTexture({
   );
 }
 export default function Dome({ photoIndex, setPhotoIndex, mediaPath, mediaDb, pauseRef, muteRef }) {
+  console.log(photoIndex);
   // const { gl } = useThree()
   const [texture, setTexture] = useState();
   const [prevIndex, setPrevIndex] = useState(photoIndex);

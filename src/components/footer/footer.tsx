@@ -2,7 +2,7 @@
 import classNames from 'classnames';
 import styles from './footer.module.scss';
 import { ButtonIcon } from '../button-icon/button-icon';
-import { screenS, photoIndexS, muteS, momentS } from '../../App';
+import { screenS, photoIndexS, muteS, momentS, allMoments } from '../../App';
 import { forwardRef, useCallback, useEffect, useRef, useState } from 'react';
 import useScreen from '../../services/use-screen-gsap';
 // @ts-ignore
@@ -32,6 +32,7 @@ export const Footer = forwardRef(function Footer(props, ref) {
         screenS.value = 'gallery';
     }
     function handleGalleryList() {
+        if (momentS.value === 'favorites') momentS.value = allMoments[0];
         screenS.value = 'galleryList';
     }
 

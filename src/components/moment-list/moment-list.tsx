@@ -10,7 +10,7 @@ import { Moment } from '../moment/moment';
 import { MomentListInfo } from '../moment-list-info/moment-list-info';
 import { Bg } from '../bg/bg';
 import { mediaDb, metaDb } from '../../db';
-import { screenS, favoriteMoments, momentS, allMoments } from '../../App';
+import { screenS, favoriteMoments, momentS, allMoments, photoIndexS } from '../../App';
 import { effect } from '@preact/signals-react';
 import useScreen from '../../services/use-screen-gsap';
 
@@ -68,10 +68,11 @@ export const MomentList = ({ className }: MomentListProps) => {
     }, [contRef]);
 
     const { contextSafe } = useGSAP({ scope: contRef });
-    const handleMoment = () => {
+    const handleMoment = (index: number) => {
         const state = Flip.getState('#m0');
         document.querySelector('#m0')?.classList.add('moment-open');
         screenS.value = 'momentOpen';
+        photoIndexS.value = index;
         Flip.from(state, {
             targets: '.moment-open',
             duration: 1,
@@ -104,7 +105,7 @@ export const MomentList = ({ className }: MomentListProps) => {
                             className={styles['moment-list__moment-wrap']}
                             id={'m' + index}
                             ref={momentRef}
-                            onClick={handleMoment}
+                            onClick={() => handleMoment(index)}
                         >
                             <div className={styles['moment-list__dim']}></div>
                             <div

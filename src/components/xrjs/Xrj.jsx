@@ -17,7 +17,7 @@ import { useEffect, useState, useRef, useCallback, forwardRef } from 'react';
 import Glass from './Glass';
 import Hud from './Hud';
 import Dome from './Dome';
-import { momentS, photoIndexS, favoriteMoments } from '../../App';
+import { momentS, photoIndexS, favoriteMoments, screenS } from '../../App';
 import { mediaDb as db } from '../../db';
 import { effect } from '@preact/signals-react';
 
@@ -25,52 +25,24 @@ import { Footer } from '../footer/footer';
 
 const mediaPath = '../360/';
 
-// const mediaDb = db[momentS.value];
-// export const mediaDb = [
-//   { type: 'video', src: 'v1.mp4', thumb: 'v1.jpg', name: 'Moment Name a' },
-//   { type: 'video', src: 'v2.mp4', thumb: 'v2.jpg', name: 'Moment Name a' },
-//   { type: 'image', src: 'w1.webp', thumb: '', name: 'Moment Name b' },
-//   { type: 'image', src: 'w2.webp', thumb: '', name: 'Moment Name b' },
-//   { type: 'image', src: 'w3.webp', thumb: '', name: 'Moment Name c' },
-//   { type: 'image', src: 'w4.webp', thumb: '', name: 'Moment Name c' },
-// ];
-
 const sessionOptions = {
   requiredFeatures: ['local-floor'],
 };
 
 export default function Xrj({ index = 0, moment = 'favorites' }) {
   const mediaDb = moment === 'favorites' ? favoriteMoments : db[moment];
-
   const muteRef = useRef();
   const pauseRef = useRef(null);
-  // photoIndexS.value = photoIndex;
-  // console.log(photoIndex, moment, mediaDb);
-  // console.log(mediaDb.length);
-  // let mediaDb;
-  // effect(() => {
-  //   mediaDb = favoriteS?.value ? favoriteMoments : db[momentS?.value];
-  //   console.log('c', momentS?.value, mediaDb);
-  // });
 
   const enterAR = useEnterXR('immersive-vr', sessionOptions);
   const inputSources = useInputSources();
-
   const [orbitControl, setOrbitControl] = useState(true);
   const [photoIndex, setPhotoIndex] = useState(index);
-  // useEffect(() => {
-  //   pauseRef.current.addEventListener('click', handleClick);
-  //   return () => {
-  //     pauseRef.current.removeEventListener('click', handleClick);
-  //   };
-  // }, []);
+  console.log(mediaDb, photoIndex);
+  useEffect(() => {
+    if (screenS.value === 'momentOpen') setPhotoIndex(index);
+  }, [index]);
 
-  // const handleClick = (event) => {
-  //   console.log('Clicked!');
-  // };
-  // console.log(document.querySelector('#pause'));
-
-  //  refs = {{ ref1: this.pauseRef, ref2: this.muteRef }};
   const props = {
     mediaDb: mediaDb,
     photoIndex: photoIndex,
