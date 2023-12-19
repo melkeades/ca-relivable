@@ -3,7 +3,7 @@ import styles from './gallery-list-open-bottom-nav.module.scss';
 import { GalleryStack } from '../gallery-stack/gallery-stack';
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import useScreen from '../../services/use-screen-gsap';
-import { allMoments } from '../../App';
+import { allMoments, screenS, momentS } from '../../App';
 
 export interface GalleryListOpenBottomNavProps {
     className?: string;
@@ -81,10 +81,16 @@ export const GalleryListOpenBottomNav = ({ className }: GalleryListOpenBottomNav
                 dimRef.current!.classList.remove(styles['nav-dim--active']);
             }
             // scrollRef.current.style.maxHeight = currentFr === '0px' ? '400px' : '0px'; // meh
-            // scrollRef.current!.style.gridTemplateRows = currentFr === '0fr' ? '1fr' : '0fr'; //non-null assertion operator
+            // scrollRef.current!.style.gridTemplateRows = currentFr === '0fr' ? '1fr' : '0fr'; //non-null assertion operatorviw
         }
         // setOpen(!open);
         // console.log(open);
+    };
+    const handleStack = (e: any, moment: string) => {
+        momentS.value = moment;
+        handleToggle(e);
+        // screenS.value = 'galleryList';
+        // console.log('asdf');
     };
     useEffect(() => {
         const el = scrollRef.current;
@@ -108,7 +114,7 @@ export const GalleryListOpenBottomNav = ({ className }: GalleryListOpenBottomNav
             <div className={styles['nav-dim']} ref={dimRef} onClick={handleToggle} />
             <div className={styles['nav-wrap']} data-lenis-prevent="">
                 <div className={styles['nav__title-wrap']} ref={titleRef} onClick={handleToggle}>
-                    <h5 className={styles.nav__title}>Heading 5</h5>
+                    <h5 className={styles.nav__title}>Other Stacks</h5>
                     <div className={styles.nav__arrow}>
                         <img src="../img/ico_arrow-up.svg" alt="" ref={arrowRef} />
                     </div>
@@ -126,13 +132,13 @@ export const GalleryListOpenBottomNav = ({ className }: GalleryListOpenBottomNav
                         // dragConstraints={trackRef}
                         className={styles.nav__list}
                     >
-                        {[...Array(9)].map((stack, index) => (
+                        {allMoments.map((stack, index) => (
                             <GalleryStack
                                 key={index}
                                 stackName={allMoments[index]}
                                 className="is--carousel"
                                 style={{ alignItems: 'flex-start' }}
-                                // handle={handleToggle}
+                                handle={(e) => handleStack(e, stack)}
                             />
                         ))}
                     </div>
