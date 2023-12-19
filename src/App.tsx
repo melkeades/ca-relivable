@@ -7,21 +7,44 @@ import { Moment } from './components/moment/moment';
 
 import { Footer } from './components/footer/footer';
 import { Home } from './components/home/home';
-import { signal, effect } from '@preact/signals-react';
+import { signal, effect, computed } from '@preact/signals-react';
 import { mediaDb, metaDb } from './db';
 import { MomentList } from './components/moment-list/moment-list';
 import { Gallery } from './components/gallery/gallery';
 import { MomentOpen } from './components/moment-open/moment-open';
 
+export const allMoments = Object.keys(mediaDb);
+export let favoriteMoments: any[] = [];
+
+allMoments.forEach((moment) => {
+    favoriteMoments.push(Object.values(mediaDb[moment]).filter((item) => item.favorite === true));
+});
+
+favoriteMoments.forEach((moments, index) => {
+    moments.forEach((moment: any) => {
+        moment.moment = allMoments[index];
+        delete moment.favorite;
+    });
+});
+favoriteMoments = favoriteMoments.flat();
+
 // export const state = signal({ screen: 'home' });
 // export const nameS = signal(metaDb.names);
-// console.log(Object.keys(mediaDb)[0]);
 
 export const screenS = signal('home');
+export const momentS = signal('favorites');
+// export const favoriteS = computed(() => {
+//     return screenS.value !== 'gallery' && screenS.value !== 'galleryList';
+// });
+
 export const typeS = signal('');
 export const pathS = signal('');
 export const muteS = signal(true);
 export const photoIndexS = signal(2);
+
+effect(() => {
+    console.log(momentS.value);
+});
 function getState() {
     // return 'asdfkj';
 }
@@ -39,7 +62,7 @@ function App() {
             <Header names={metaDb.names} />
             <Home />
             <Gallery />
-            <Footer />
+
             <MomentList />
             <MomentOpen />
         </div>

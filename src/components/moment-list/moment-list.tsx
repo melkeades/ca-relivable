@@ -9,8 +9,8 @@ import Lenis from '@studio-freight/lenis';
 import { Moment } from '../moment/moment';
 import { MomentListInfo } from '../moment-list-info/moment-list-info';
 import { Bg } from '../bg/bg';
-import { mediaDb, metaDb, favDb } from '../../db';
-import { screenS } from '../../App';
+import { mediaDb, metaDb } from '../../db';
+import { screenS, favoriteMoments, momentS, allMoments } from '../../App';
 import { effect } from '@preact/signals-react';
 import useScreen from '../../services/use-screen-gsap';
 
@@ -23,6 +23,7 @@ export interface MomentListProps {
 }
 
 export const MomentList = ({ className }: MomentListProps) => {
+    // momentS.value = allMoments[0];
     const lenis = useRef<Lenis | null>(null);
     // const contRef = createRef<HTMLDivElement>();
     const contRef = useRef<HTMLDivElement>(null);
@@ -68,8 +69,6 @@ export const MomentList = ({ className }: MomentListProps) => {
 
     const { contextSafe } = useGSAP({ scope: contRef });
     const handleMoment = () => {
-        console.log('asdf');
-
         const state = Flip.getState('#m0');
         document.querySelector('#m0')?.classList.add('moment-open');
         screenS.value = 'momentOpen';
@@ -96,21 +95,40 @@ export const MomentList = ({ className }: MomentListProps) => {
             ref={contRef}
         >
             <div className={styles['moment-list__list']}>
-                {favDb.map((moment, index) => (
-                    <div
-                        key={index}
-                        className={styles['moment-list__moment-wrap']}
-                        id={'m' + index}
-                        ref={momentRef}
-                        onClick={handleMoment}
-                    >
-                        <div className={styles['moment-list__dim']}></div>
-                        <div className={classNames(styles['moment-list__info-wrap'], 'thumbMask3')}>
-                            <MomentListInfo key={index} photoIndex={'0' + (index + 1)} />
+                {favoriteMoments.map((moment, index) => {
+                    // console.log(moment, index);
+
+                    return (
+                        <div
+                            key={index}
+                            className={styles['moment-list__moment-wrap']}
+                            id={'m' + index}
+                            ref={momentRef}
+                            onClick={handleMoment}
+                        >
+                            <div className={styles['moment-list__dim']}></div>
+                            <div
+                                className={classNames(
+                                    styles['moment-list__info-wrap'],
+                                    'thumbMask3'
+                                )}
+                            >
+                                <MomentListInfo
+                                    key={index}
+                                    moment={moment.moment}
+                                    description={moment.description}
+                                    index={index + 1}
+                                    // photoIndex={'0' + (index + 1)}
+                                />
+                            </div>
+                            <Moment
+                                photoIndex={index}
+                                moment="favorites"
+                                className="list__moment"
+                            />
                         </div>
-                        <Moment photoIndex={index + 1} className="list__moment" />
-                    </div>
-                ))}
+                    );
+                })}
             </div>
             {/* <Bg contRef={contRef} /> */}
             <div className={classNames(styles['moment-list__bg-wrap'])}>

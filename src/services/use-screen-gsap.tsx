@@ -14,7 +14,7 @@ export default function useScreen(ref: React.RefObject<HTMLElement>, screen: str
                     opacity: active ? 1 : 0,
                     onStart() {
                         if (active) {
-                            console.log('out');
+                            // console.log('out');
                             ref.current?.classList.remove('off');
                             ref.current?.classList.remove('out');
                         } else {
@@ -23,7 +23,7 @@ export default function useScreen(ref: React.RefObject<HTMLElement>, screen: str
                     },
                     onComplete() {
                         if (!active) {
-                            console.log('off');
+                            // console.log('off');
                             ref.current?.classList.add('off');
                         } else {
                         }

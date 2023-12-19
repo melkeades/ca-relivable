@@ -5,9 +5,12 @@ import { useThree } from '@react-three/fiber';
 // import Hls from 'hls.js'
 import * as THREE from 'three';
 import { useTexture, useVideoTexture } from '@react-three/drei';
+import { photoIndexS, typeS, pathS, muteS } from '../../App';
+// import { muteS } from '../../components/footer/footer';
+import { signal, effect } from '@preact/signals-react';
 
 const sel = (e) => document.querySelector(e);
-const pause$ = sel('#pause');
+const pause$ = sel('.btn--pause');
 const vol$ = sel('#volume');
 
 function ImageTexture({ mediaFile, texture, setTexture }) {
@@ -23,7 +26,6 @@ function ImageTexture({ mediaFile, texture, setTexture }) {
     />
   );
 }
-
 function VideoTexture({
   mediaFile,
   texture,
@@ -56,45 +58,65 @@ function VideoTexture({
     />
   );
 }
-export default function Dome({ photoIndex, setPhotoIndex, mediaPath, mediaDb, pauseRef, muteRef }) {
+export default function Dome({
+  moment = 'favorites',
+  photoIndex = 2,
+  setPhotoIndex,
+  mediaPath,
+  mediaDb,
+}) {
+  // console.log(parseInt(photoIndex.photoIndex))
+
   // const { gl } = useThree()
   const [texture, setTexture] = useState();
-  const [prevIndex, setPrevIndex] = useState(photoIndex);
+  // const [prevIndex, setPrevIndex] = useState(photoIndexS.value);
   const [videoPaused, setVideoPaused] = useState(false);
   const [videoMuted, setVideoMuted] = useState(true);
+  // const [mediaType, setMediaType] = useState(mediaDb[photoIndexS.value].type);
+  // const [mediaFile, setMediaFile] = useState(mediaPath + mediaDb[photoIndexS.value].src);
   const [mediaType, setMediaType] = useState(mediaDb[photoIndex].type);
   const [mediaFile, setMediaFile] = useState(mediaPath + mediaDb[photoIndex].src);
 
   useEffect(() => {
     texture?.pause();
     texture?.remove();
-    setMediaType(mediaDb[photoIndex].type);
-    setMediaFile(mediaPath + mediaDb[photoIndex].src);
-  }, [photoIndex]);
+    console.log(photoIndexS.value, mediaDb.length, mediaDb);
+    setMediaType(mediaDb[photoIndexS.value].type);
+    setMediaFile(mediaPath + mediaDb[photoIndexS.value].src);
+    // if (moment) {
+    //   setMediaType(mediaDb[photoIndexS.value].type);
+    //   // typeS.value = mediaDb[photoIndexS.value].type;
+    //   setMediaFile(mediaPath + mediaDb[photoIndexS.value].src);
+    //   // pathS.value = mediaPath + mediaDb[photoIndexS.value].src;
+    // } else {
+    //   setMediaType(mediaDb[photoIndex].type);
+    //   setMediaFile(mediaPath + mediaDb[photoIndex].src);
+    // }
+  }, [photoIndexS.value]);
 
   useEffect(() => {
     if (videoPaused && mediaType === 'video') {
       texture.pause();
     }
-  }, [photoIndex, texture, videoPaused, mediaType]);
+  }, [photoIndexS.value, texture, videoPaused, mediaType]);
 
-  useEffect(() => {
-    function handler() {
-      // console.log('handler')
-      if (mediaType === 'video') {
-        if (videoPaused) {
-          // pause$.style.opacity = 1;
-          texture.play();
-        } else {
-          // pause$.style.opacity = 0.3;
-          texture.pause();
-        }
-        setVideoPaused(!videoPaused);
-      }
-    }
-    pauseRef?.current.addEventListener('click', handler);
-    return () => pauseRef.current.removeEventListener('click', handler);
-  }, [videoPaused, texture, mediaType]);
+  // useEffect(() => {
+  // function handler() {
+  //   // console.log('handler')
+  //   if (mediaType === 'video') {
+  //     if (videoPaused) {
+  //       pause$.style.opacity = 1;
+  //       texture.play();
+  //     } else {
+  //       pause$.style.opacity = 0.3;
+  //       texture.pause();
+  //     }
+  //     setVideoPaused(!videoPaused);
+  //   }
+  // }
+  // pause$.addEventListener('click', handler)
+  // return () => pause$.removeEventListener('click', handler);
+  // }, [videoPaused, texture, mediaType]);
 
   useEffect(() => {
     if (!videoMuted && mediaType === 'video') {
@@ -104,7 +126,7 @@ export default function Dome({ photoIndex, setPhotoIndex, mediaPath, mediaDb, pa
     if (videoMuted && mediaType === 'video' && texture) {
       texture.muted = true;
     }
-  }, [photoIndex, texture, videoMuted, mediaType]);
+  }, [photoIndexS.value, texture, videoMuted, mediaType]);
 
   useEffect(() => {
     function handler() {
@@ -121,8 +143,8 @@ export default function Dome({ photoIndex, setPhotoIndex, mediaPath, mediaDb, pa
         setVideoMuted(!videoMuted);
       }
     }
-    muteRef?.current.addEventListener('click', handler);
-    return () => muteRef.current.removeEventListener('click', handler);
+    // vol$?.addEventListener('click', handler);
+    // return () => vol$?.removeEventListener('click', handler);
   }, [videoMuted, texture, mediaType]);
 
   return (

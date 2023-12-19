@@ -13,59 +13,70 @@ import {
   XR,
   useXR,
 } from '@coconut-xr/natuerlich/react';
-import { useEffect, useState, useRef, useCallback } from 'react';
+import { useEffect, useState, useRef, useCallback, forwardRef } from 'react';
 import Glass from './Glass';
 import Hud from './Hud';
 import Dome from './Dome';
-import { photoIndexS } from '../../App';
+import { momentS, photoIndexS, favoriteMoments } from '../../App';
+import { mediaDb as db } from '../../db';
+import { effect } from '@preact/signals-react';
 
-const sel = (e) => document.querySelector(e);
+import { Footer } from '../footer/footer';
 
 const mediaPath = '../360/';
-export const mediaDb = [
-  { type: 'video', src: 'v1.mp4', thumb: 'v1.jpg', name: 'Moment Name a' },
-  { type: 'video', src: 'v2.mp4', thumb: 'v2.jpg', name: 'Moment Name a' },
-  { type: 'image', src: 'w1.webp', thumb: '', name: 'Moment Name b' },
-  { type: 'image', src: 'w2.webp', thumb: '', name: 'Moment Name b' },
-  { type: 'image', src: 'w3.webp', thumb: '', name: 'Moment Name c' },
-  { type: 'image', src: 'w4.webp', thumb: '', name: 'Moment Name c' },
-];
+
+// const mediaDb = db[momentS.value];
+// export const mediaDb = [
+//   { type: 'video', src: 'v1.mp4', thumb: 'v1.jpg', name: 'Moment Name a' },
+//   { type: 'video', src: 'v2.mp4', thumb: 'v2.jpg', name: 'Moment Name a' },
+//   { type: 'image', src: 'w1.webp', thumb: '', name: 'Moment Name b' },
+//   { type: 'image', src: 'w2.webp', thumb: '', name: 'Moment Name b' },
+//   { type: 'image', src: 'w3.webp', thumb: '', name: 'Moment Name c' },
+//   { type: 'image', src: 'w4.webp', thumb: '', name: 'Moment Name c' },
+// ];
 
 const sessionOptions = {
   requiredFeatures: ['local-floor'],
 };
 
-export default function Xrj(photoIndex) {
+export default function Xrj({ index = 0, moment = 'favorites' }) {
+  const mediaDb = moment === 'favorites' ? favoriteMoments : db[moment];
+
+  const muteRef = useRef();
+  const pauseRef = useRef(null);
+  // photoIndexS.value = photoIndex;
+  // console.log(photoIndex, moment, mediaDb);
+  // console.log(mediaDb.length);
+  // let mediaDb;
+  // effect(() => {
+  //   mediaDb = favoriteS?.value ? favoriteMoments : db[momentS?.value];
+  //   console.log('c', momentS?.value, mediaDb);
+  // });
+
   const enterAR = useEnterXR('immersive-vr', sessionOptions);
   const inputSources = useInputSources();
 
   const [orbitControl, setOrbitControl] = useState(true);
-  // const [photoIndex, setPhotoIndex] = useState(2);
-
-  // const btnPrev$ = sel('.btn--prev');
-  // const btnNext$ = sel('.btn--next');
-
-  // const handlerPrev = useCallback(() => {
-  //   setPhotoIndex(photoIndex > 0 ? photoIndex - 1 : mediaDb.length - 1);
-  // });
-  // const handlerNext = useCallback(() => {
-  //   setPhotoIndex(photoIndex < mediaDb.length - 1 ? photoIndex + 1 : 0);
-  // });
-
+  const [photoIndex, setPhotoIndex] = useState(index);
   // useEffect(() => {
-  //   btnPrev$.addEventListener('click', handlerPrev);
+  //   pauseRef.current.addEventListener('click', handleClick);
   //   return () => {
-  //     btnPrev$.removeEventListener('click', handlerPrev);
+  //     pauseRef.current.removeEventListener('click', handleClick);
   //   };
-  // }, [handlerPrev, handlerNext]);
+  // }, []);
 
-  // useEffect(() => {
-  //   btnNext$.addEventListener('click', handlerNext);
-  //   return () => {
-  //     btnNext$.removeEventListener('click', handlerNext);
-  //   };
-  // }, [handlerNext, handlerPrev]);
-  console.log(photoIndex.photoIndex);
+  // const handleClick = (event) => {
+  //   console.log('Clicked!');
+  // };
+  // console.log(document.querySelector('#pause'));
+
+  //  refs = {{ ref1: this.pauseRef, ref2: this.muteRef }};
+  const props = {
+    mediaDb: mediaDb,
+    photoIndex: photoIndex,
+    setPhotoIndex: setPhotoIndex,
+  };
+  // console.log(photoIndex);
   return (
     <>
       {useSessionSupported('immersive-vr') && (
@@ -96,10 +107,13 @@ export default function Xrj(photoIndex) {
         )}
         <Dome
           // photoIndex={photoIndex}
-          // setPhotoIndex={setPhotoIndex}
+          setPhotoIndex={setPhotoIndex}
           mediaPath={mediaPath}
           mediaDb={mediaDb}
-          // photoIndex={photoIndex}
+          photoIndex={photoIndex}
+          pauseRef={pauseRef}
+          muteRef={muteRef}
+          // moment={moment}
         />
         <Hud
           // setPhotoIndex={setPhotoIndex}
@@ -108,6 +122,11 @@ export default function Xrj(photoIndex) {
           mediaDb={mediaDb}
         />
       </XRCanvas>
+      {/* <Footer mediaDb={mediaDb} photoIndex={photoIndex} setPhotoIndex={setPhotoIndex} /> */}
+      {/* <Footer {...props} ref={refs} /> */}
+      <Footer {...props} ref={{ pauseRef: pauseRef, muteRef: muteRef }} />
+
+      {/* <Footer {...props} ref={pauseRef} /> */}
     </>
   );
 }

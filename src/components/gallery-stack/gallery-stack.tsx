@@ -1,6 +1,8 @@
 import classNames from 'classnames';
 import styles from './gallery-stack.module.scss';
 import { screenS } from '../../App';
+import { allMoments } from '../../App';
+import { mediaDb } from '../../db';
 
 export interface GalleryStackProps {
     className?: string;
@@ -10,6 +12,22 @@ export interface GalleryStackProps {
 }
 
 export const GalleryStack = ({ className, stackName, handle, style }: GalleryStackProps) => {
+    let momentImages: any[] = [];
+
+    // momentImages.push(
+    //     mediaDb[stackName]?.filter((item) => {
+    //         return item.thumb || item.src;
+    //     })
+    // );
+    mediaDb[stackName]?.forEach((e) => {
+        // console.log(e);
+
+        // if (Object.keys(e).length > 0)
+        const item = e.thumb === '' ? e.src : e.thumb;
+        momentImages.push(item);
+    });
+    // console.log(momentImages);
+
     return (
         <div className={classNames(styles.root, className)} onClick={handle} style={style}>
             <div
@@ -31,7 +49,7 @@ export const GalleryStack = ({ className, stackName, handle, style }: GallerySta
                 </svg>
                 <div className={styles['gallery-stack__img-wrap']}>
                     <img
-                        src="../img/img_01.webp"
+                        src={`../360/${momentImages[0]}`}
                         alt=""
                         draggable="false"
                         className={classNames(
@@ -42,7 +60,7 @@ export const GalleryStack = ({ className, stackName, handle, style }: GallerySta
                 </div>
                 <div className={styles['gallery-stack__img-wrap']}>
                     <img
-                        src="../img/img_02.webp"
+                        src={`../360/${momentImages[1]}`}
                         alt=""
                         className={classNames(
                             styles['gallery-stack__img'],
@@ -52,7 +70,7 @@ export const GalleryStack = ({ className, stackName, handle, style }: GallerySta
                 </div>
                 <div className={styles['gallery-stack__img-wrap']}>
                     <img
-                        src="../img/img_03.webp"
+                        src={`../360/${momentImages[2]}`}
                         alt=""
                         className={classNames(
                             styles['gallery-stack__img'],
@@ -61,7 +79,7 @@ export const GalleryStack = ({ className, stackName, handle, style }: GallerySta
                     />
                 </div>
             </div>
-            <div className={styles['gallery-stack__title']}>stack name</div>
+            <div className={styles['gallery-stack__title']}>{stackName}</div>
         </div>
     );
 };

@@ -5,7 +5,8 @@ import { GalleryListOpenTabs } from '../gallery-list-open-tabs/gallery-list-open
 import { GalleryListOpenBottomNav } from '../gallery-list-open-bottom-nav/gallery-list-open-bottom-nav';
 import useScreen from '../../services/use-screen-gsap';
 import { useRef } from 'react';
-import { screenS } from '../../App';
+import { allMoments, momentS, screenS } from '../../App';
+import { mediaDb } from '../../db';
 
 export interface GalleryListOpenProps {
     className?: string;
@@ -16,6 +17,7 @@ export const GalleryListOpen = ({ className }: GalleryListOpenProps) => {
     useScreen(contRef, ['galleryList']);
     function handleMoment() {
         screenS.value = 'momentOpen';
+        momentS.value = allMoments[0];
     }
     return (
         <div className={styles.root} ref={contRef}>
@@ -41,16 +43,19 @@ export const GalleryListOpen = ({ className }: GalleryListOpenProps) => {
                 </div>
             </div>
             <div className={styles.gallery__window}>
-                <h4 className={classNames('h4', styles['gallery-list-open__title'])}>Stack Name</h4>
+                <h4 className={classNames('h4', styles['gallery-list-open__title'])}>
+                    {momentS.value}
+                </h4>
                 <GalleryListOpenTabs />
             </div>
             <div className={styles['gallery-list-open__list']}>
-                {[...Array(6)].map((stack, index) => (
+                {mediaDb[momentS.value]?.map((item, index) => (
                     <GalleryListOpenItem
                         key={index}
                         index={index}
                         photoIndex={index}
                         handle={handleMoment}
+                        item={item}
                     />
                 ))}
             </div>

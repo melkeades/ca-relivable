@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 3,
+            "activePatchIndex": 5,
             "patches": [
                 {
                     "date": 1702885387371,
@@ -20,6 +20,14 @@
                 {
                     "date": 1702919308095,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,16 +8,16 @@\n import useScreen from '../../services/use-screen-gsap';\r\n \r\n export interface MomentOpenProps {\r\n     className?: string;\r\n-    photoIndex?: string;\r\n+    photoIndex?: number;\r\n }\r\n \r\n-export const MomentOpen = ({ className, photoIndex = '01' }: MomentOpenProps) => {\r\n+export const MomentOpen = ({ className, photoIndex = 2 }: MomentOpenProps) => {\r\n     const contRef = useRef<HTMLDivElement>(null);\r\n     useScreen(contRef, ['momentOpen']);\r\n     return (\r\n         <div className={classNames(styles.root, className, styles.moment)} ref={contRef}>\r\n-            <Xrj />\r\n+            <Xrj photoIndex={photoIndex}/>\r\n         </div>\r\n     );\r\n };\r\n"
+                },
+                {
+                    "date": 1702924351635,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,8 +16,8 @@\n     const contRef = useRef<HTMLDivElement>(null);\r\n     useScreen(contRef, ['momentOpen']);\r\n     return (\r\n         <div className={classNames(styles.root, className, styles.moment)} ref={contRef}>\r\n-            <Xrj photoIndex={photoIndex} />\r\n+            <Xrj photoIndex={photoIndex} momentOpen={true} />\r\n         </div>\r\n     );\r\n };\r\n"
+                },
+                {
+                    "date": 1702948490449,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,15 +9,16 @@\n \r\n export interface MomentOpenProps {\r\n     className?: string;\r\n     photoIndex?: number;\r\n+    moment? string;\r\n }\r\n \r\n export const MomentOpen = ({ className, photoIndex = 2 }: MomentOpenProps) => {\r\n     const contRef = useRef<HTMLDivElement>(null);\r\n     useScreen(contRef, ['momentOpen']);\r\n     return (\r\n         <div className={classNames(styles.root, className, styles.moment)} ref={contRef}>\r\n-            <Xrj photoIndex={photoIndex} momentOpen={true} />\r\n+            <Xrj photoIndex={photoIndex} momentOpen={moment} />\r\n         </div>\r\n     );\r\n };\r\n"
                 }
             ],
             "date": 1702885387371,

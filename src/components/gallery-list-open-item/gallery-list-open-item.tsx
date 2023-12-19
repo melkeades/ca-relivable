@@ -7,6 +7,7 @@ export interface GalleryListOpenItemProps {
     photoIndex: number;
     index: number;
     handle?: React.MouseEventHandler;
+    item?: any;
 }
 
 export const GalleryListOpenItem = ({
@@ -14,12 +15,13 @@ export const GalleryListOpenItem = ({
     index = 0,
     photoIndex,
     handle,
+    item,
 }: GalleryListOpenItemProps) => {
     const maskClass = ['item-tl', 'item-tm', 'item-tr', 'item-bl', 'item-bm', 'item-br'];
 
     const title = 'title';
-    // console.log(className);
-
+    // console.log(item);
+    const src = item.thumb || item.src;
     return (
         <div className={classNames(styles.root)} onClick={handle}>
             <svg className="mask-svg">
@@ -45,10 +47,14 @@ export const GalleryListOpenItem = ({
 
             <div className={classNames(styles['item-wrap'], styles[maskClass[index]])}>
                 <div className={styles['item-dim']}>
-                    <MetaIsVideo360 is360={true} isVideo={true} className={styles.meta} />
+                    <MetaIsVideo360
+                        is360={item.xr}
+                        isVideo={item.type === 'video'}
+                        className={styles.meta}
+                    />
                 </div>
-                <div className={styles.title}>{title}</div>
-                <img src="../img/img_01.webp" alt="" className={styles.item} />
+                <div className={styles.title}>{item.title}</div>
+                <img src={`../360/${src}`} alt="" className={styles.item} />
             </div>
         </div>
     );
