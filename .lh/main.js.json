@@ -1,0 +1,18 @@
+{
+    "sourceFile": "main.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1727817633301,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1727817633301,
+            "name": "Commit-0",
+            "content": "import './style.styl'\r\nimport { sel } from './utils'\r\nimport Home from './home'\r\n\r\nimport gsap from 'gsap'\r\nimport { ScrollTrigger } from 'gsap/ScrollTrigger'\r\nimport Lenis from '@studio-freight/lenis'\r\n\r\nconst lenis = new Lenis()\r\nlenis.on('scroll', ScrollTrigger.update)\r\ngsap.ticker.add((time) => {\r\n  lenis.raf(time * 1000)\r\n})\r\ngsap.ticker.lagSmoothing(0)\r\n\r\nconst _dataPage = sel('.page-wrapper') || sel('body')\r\nconst dataPage = _dataPage?.getAttribute('data-page')\r\nswitch (dataPage) {\r\n  case 'home':\r\n    Home()\r\n    break\r\n\r\n  case 'error':\r\n    Error()\r\n    break\r\n  case 'form':\r\n    Form()\r\n    break\r\n  default:\r\n    console.log('unknown data-page:', dataPage)\r\n}\r\n"
+        }
+    ]
+}

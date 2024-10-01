@@ -1,0 +1,56 @@
+[slider-cut] .w-dyn-item, [static-cut]>div>div>div
+    display flex !important
+    flex-basis unset !important
+
+.splide__list.w-dyn-items
+    justify-content start
+    grid-row-gap unset
+    grid-column-gap unset
+
+.os__thumb-slider, .moments__nav-slider
+    .splide__track
+        overflow visible !important
+
+.os__thumb-slider
+    .splide__list
+        @media (min-width 768px)
+            flex-direction column !important
+
+.news__slider-w
+    overflow visible !important
+
+.splide__slide
+    &, &.is-active
+        border inherit !important
+        border-width 0 !important
+
+[tabs-attached] .w-tab-menu
+    display none
+
+[arrows-attached]
+    .w-slider-arrow-left, .w-slider-arrow-right
+        display none
+
+html.lenis
+    height auto
+
+.lenis.lenis-smooth
+    scroll-behavior auto
+
+.lenis.lenis-smooth [data-lenis-prevent]
+    overscroll-behavior contain
+
+.lenis.lenis-stopped
+    overflow hidden
+
+.lenis.lenis-scrolling iframe
+    pointer-events none
+
+.st-overflow
+    overflow hidden
+
+.footer__top__intput//disable autofill
+    color-scheme dark
+
+    &:-webkit-autofill, &:-webkit-autofill:focus
+        -webkit-box-shadow 0 0 0px 1000px #041518 inset

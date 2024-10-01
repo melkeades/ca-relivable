@@ -1,0 +1,34 @@
+{
+    "sourceFile": "home.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1727817663100,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1727817682760,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,9 @@\n \r\n import { Intersection } from '@splidejs/splide-extension-intersection'\r\n \r\n export default function Home() {\r\n+  /*\r\n   function osInit() {\r\n     const name = 'os'\r\n     addSplideClasses(name + '__slider')\r\n     const splide = new Splide('.' + name + '__slider', {\r\n@@ -139,5 +140,6 @@\n     splideAutoWidth(slider)\r\n     slider.mount({ AutoScroll })\r\n   }\r\n   galleryInit()\r\n+  */\r\n }\r\n"
+                },
+                {
+                    "date": 1727817706320,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,10 @@\n \r\n import { Intersection } from '@splidejs/splide-extension-intersection'\r\n \r\n export default function Home() {\r\n+  console.log('home.js')\r\n+  \r\n   /*\r\n   function osInit() {\r\n     const name = 'os'\r\n     addSplideClasses(name + '__slider')\r\n"
+                },
+                {
+                    "date": 1727818036569,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,12 @@\n import { AutoScroll } from '@splidejs/splide-extension-auto-scroll'\r\n \r\n import { Intersection } from '@splidejs/splide-extension-intersection'\r\n \r\n+selAll('source').forEach((source) => {\r\n+  source.srcset = ''\r\n+})\r\n+\r\n export default function Home() {\r\n   console.log('home.js')\r\n \r\n   /*\r\n"
+                },
+                {
+                    "date": 1727818061789,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n \r\n import { Intersection } from '@splidejs/splide-extension-intersection'\r\n \r\n selAll('source').forEach((source) => {\r\n-  source.srcset = ''\r\n+  source.src = ''\r\n })\r\n \r\n export default function Home() {\r\n   console.log('home.js')\r\n"
+                }
+            ],
+            "date": 1727817663100,
+            "name": "Commit-0",
+            "content": "import { addSplideClasses, connectSplideArrows, connectSplideBullets, connectSplideCarouselBullets, sel, selAll, splideAutoWidth } from './utils'\r\nimport '@splidejs/splide/css'\r\nimport Splide from '@splidejs/splide'\r\nimport { AutoScroll } from '@splidejs/splide-extension-auto-scroll'\r\n\r\nimport { Intersection } from '@splidejs/splide-extension-intersection'\r\n\r\nexport default function Home() {\r\n  function osInit() {\r\n    const name = 'os'\r\n    addSplideClasses(name + '__slider')\r\n    const splide = new Splide('.' + name + '__slider', {\r\n      // perPage: 1,\r\n      // width: '100%',\r\n      autoplay: false,\r\n      // autoHeight: true,\r\n      type: 'fade',\r\n      rewind: true,\r\n      pagination: false,\r\n      arrows: false,\r\n    })\r\n\r\n    addSplideClasses(name + '__thumb-slider')\r\n    const thumbnails = new Splide('.' + name + '__thumb-slider', {\r\n      // gap: '0',\r\n      // direction: 'ttb',\r\n      // height: '35rem',\r\n      // autoHeight: true,\r\n      // perPage: 1,\r\n      rewind: true,\r\n      pagination: false,\r\n      arrows: false,\r\n      isNavigation: true,\r\n      // speed: 1500,\r\n      // easing: 'cubic-bezier(0.16, 1, 0.3, 1)',\r\n      breakpoints: {\r\n        478: {\r\n          perPage: 1,\r\n          gap: '0.5rem',\r\n          // autoWidth: true,\r\n        },\r\n      },\r\n    })\r\n    splide.sync(thumbnails)\r\n    splide.mount()\r\n    thumbnails.mount()\r\n    connectSplideBullets(splide, '.bullets.is--os')\r\n    // connectSplideArrows(splide, 'arrows', '.round-arrow')\r\n  }\r\n  osInit()\r\n\r\n  function newsInit() {\r\n    const name = 'news'\r\n    addSplideClasses(name + '__slider')\r\n    const splide = new Splide('.' + name + '__slider', {\r\n      perPage: 2,\r\n      gap: '1.5rem',\r\n      // autoplay: false,\r\n      // autoHeight: true,\r\n      // type: 'fade',\r\n      rewind: true,\r\n      pagination: false,\r\n      arrows: false,\r\n      speed: 1500,\r\n      padding: { right: '20%' },\r\n      easing: 'cubic-bezier(0.16, 1, 0.3, 1)',\r\n      breakpoints: {\r\n        768: {\r\n          padding: { right: '0' },\r\n          gap: '0.5rem',\r\n        },\r\n        467: {\r\n          perPage: 1,\r\n        },\r\n      },\r\n    })\r\n\r\n    connectSplideCarouselBullets(splide, '.bullets.is--news')\r\n    splide.mount()\r\n  }\r\n  newsInit()\r\n  function testimonialsInit() {\r\n    const name = 'testimonials'\r\n    addSplideClasses(name + '__slider')\r\n    const splide = new Splide('.' + name + '__slider', {\r\n      // perPage: 1,\r\n      // width: '100%',\r\n      autoplay: false,\r\n      // autoHeight: true,\r\n      type: 'fade',\r\n      rewind: true,\r\n      pagination: false,\r\n      arrows: false,\r\n    })\r\n\r\n    addSplideClasses(name + '__img-slider')\r\n    const img = new Splide('.' + name + '__img-slider', {\r\n      gap: '1rem',\r\n      // direction: 'ttb',\r\n      // height: '35rem',\r\n      // autoHeight: true,\r\n      // perPage: 1,\r\n      // rewind: true,\r\n      pagination: false,\r\n      arrows: false,\r\n      // isNavigation: true,\r\n      speed: 1500,\r\n      easing: 'cubic-bezier(0.16, 1, 0.3, 1)',\r\n      breakpoints: {\r\n        478: {\r\n          perPage: 1,\r\n          gap: '0.5rem',\r\n        },\r\n      },\r\n    })\r\n    splide.sync(img)\r\n    splide.mount()\r\n    img.mount()\r\n    connectSplideBullets(splide, '.bullets.is--' + name)\r\n  }\r\n  testimonialsInit()\r\n  function galleryInit() {\r\n    const classPrefix = 'cta'\r\n    addSplideClasses(classPrefix + '__slider')\r\n    const slider = new Splide(sel(`.${classPrefix}__slider`), {\r\n      arrows: false,\r\n      pagination: false,\r\n      gap: '2.5rem',\r\n      type: 'loop',\r\n      autoWidth: true,\r\n      autoScroll: { speed: 0.6, autoStart: false },\r\n      breakpoints: {\r\n        767: {\r\n          gap: '1rem',\r\n        },\r\n      },\r\n    })\r\n\r\n    splideAutoWidth(slider)\r\n    slider.mount({ AutoScroll })\r\n  }\r\n  galleryInit()\r\n}\r\n"
+        }
+    ]
+}
