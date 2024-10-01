@@ -32,6 +32,7 @@ export default function Home() {
     div.classList.add(name + '__mod-w')
 
     item$a.forEach((item, i) => {
+      const button$ = item.querySelector('.button')
       const _modal$ = item.querySelector('.mod-w')
 
       const modal$ = _modal$.cloneNode(true) // to remove event listeners
@@ -52,7 +53,7 @@ export default function Home() {
       })
       modalTl.set(modal$, { display: 'block' }, 0).fromTo(modal$, { autoAlpha: 0, '--mod-y': '5rem' }, { autoAlpha: 1, '--mod-y': '0' }, 0)
 
-      item.onclick = () => {
+      button$.onclick = () => {
         gsap.to(modalTl, { time: modalTl.duration(), duration: modalTl.duration(), ease: 'power4.out' })
       }
       ;[modalX$].forEach((el) => {
