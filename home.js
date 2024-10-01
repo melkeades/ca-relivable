@@ -7,7 +7,7 @@ import { Intersection } from '@splidejs/splide-extension-intersection'
 import gsap from 'gsap'
 
 selAll('video').forEach((el) => {
-  el.pause()
+  // el.pause()
 })
 
 export default function Home() {
