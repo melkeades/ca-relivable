@@ -1,20 +1,9 @@
 import { addSplideClasses, connectSplideArrows, connectSplideBullets, connectSplideCarouselBullets, onDomReady, sel, selAll, splideAutoWidth } from './utils'
 import '@splidejs/splide/css'
 import Splide from '@splidejs/splide'
-import { AutoScroll } from '@splidejs/splide-extension-auto-scroll'
 
-import { Intersection } from '@splidejs/splide-extension-intersection'
 import gsap from 'gsap'
-// import { on } from 'stylus/lib/renderer'
-// import View360, { EquirectProjection } from '@egjs/view360'
 
-// import videojs from 'video.js'
-// import 'video.js/dist/video-js.css'
-// import * as THREE from 'three'
-// import 'videojs-vr'
-// import 'videojs-vr/dist/videojs-vr.min.js'
-// import vr from 'videojs-vr'
-// import 'videojs-panorama'
 selAll('video').forEach((el) => {
   // el.pause()
 })
@@ -42,22 +31,22 @@ export default function Home() {
 
     item$a.forEach((item, i) => {
       const button$ = item.querySelector('.button')
-      const _modal$ = item.querySelector('.mod-w')
+      const modal$ = item.querySelector('.mod-w')
 
-      const videoW = item.querySelector('.mod__video-w')
+      // const videoW = item.querySelector('.mod__video-w')
       const video = item.querySelector('video')
-      const videoStyle = getComputedStyle(video)
-      const backgroundImage = videoStyle.getPropertyValue('background-image')
-      const urlMatch = backgroundImage.match(/url\(["']?([^"']*)["']?\)/)
-      const url = urlMatch ? urlMatch[1] : null
+      // const videoStyle = getComputedStyle(video)
+      // const backgroundImage = videoStyle.getPropertyValue('background-image')
+      // const urlMatch = backgroundImage.match(/url\(["']?([^"']*)["']?\)/)
+      // const url = urlMatch ? urlMatch[1] : null
 
-      const videoUrl = item.querySelector('source').getAttribute('src')
-      const wEmbed = item.querySelector('.w-embed')
+      // const videoUrl = item.querySelector('source').getAttribute('src')
+      // const wEmbed = item.querySelector('.w-embed')
 
-      const canvas = document.createElement('canvas')
-      videoW.appendChild(canvas)
+      // const canvas = document.createElement('canvas')
+      // videoW.appendChild(canvas)
 
-      const modal$ = _modal$
+      // const modal$ = _modal$
       // const modal$ = _modal$.cloneNode(true) // to remove event listeners
       // _modal$.remove()
       // modal$.setAttribute('fs-scrolldisable-element', 'when-visible')
@@ -80,10 +69,12 @@ export default function Home() {
 
       button$.onclick = () => {
         gsap.to(modalTl, { time: modalTl.duration(), duration: modalTl.duration(), ease: 'power4.out' })
+        video.play()
       }
       ;[modalX$].forEach((el) => {
         el.onclick = () => {
           gsap.to(modalTl, { time: 0, duration: modalTl.duration(), ease: 'power4.out', overwrite: true })
+          video.pause()
         }
       })
     })
@@ -92,25 +83,12 @@ export default function Home() {
 
     addSplideClasses(name + '__nav-slider')
     const nav = new Splide('.' + name + '__nav-slider', {
-      // gap: '0',
-      // direction: 'ttb',
-      // height: '35rem',
-      // autoHeight: true,
-      // perPage: 1,
       rewind: true,
       pagination: false,
       arrows: false,
       isNavigation: true,
       autoplay: true,
       speed: 1500,
-      // easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
-      breakpoints: {
-        478: {
-          perPage: 1,
-          gap: '0.5rem',
-          // autoWidth: true,
-        },
-      },
     })
     let activeSlide$
 
@@ -128,9 +106,9 @@ export default function Home() {
     nav.mount()
     activeSlide$ = nav.Components.Slides.get()[0].slide
   }
-  setTimeout(() => {
-    momentInit()
-  }, 1000)
+  // setTimeout(() => {
+  momentInit()
+  // }, 1000)
 
   function testInit() {
     const name = 'testimonials'
@@ -138,15 +116,10 @@ export default function Home() {
     const splide = new Splide('.' + name + '__slider', {
       perPage: 1,
       gap: '1rem',
-      // autoplay: false,
-      // autoHeight: true,
-      // type: 'fade',
-      // rewind: true,
       type: 'loop',
       pagination: false,
       arrows: false,
       speed: 1500,
-      // padding: { right: '20%' },
       easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
     })
 
