@@ -1,11 +1,19 @@
-import { addSplideClasses, connectSplideArrows, connectSplideBullets, connectSplideCarouselBullets, sel, selAll, splideAutoWidth } from './utils'
+import { addSplideClasses, connectSplideArrows, connectSplideBullets, connectSplideCarouselBullets, onDomReady, sel, selAll, splideAutoWidth } from './utils'
 import '@splidejs/splide/css'
 import Splide from '@splidejs/splide'
 import { AutoScroll } from '@splidejs/splide-extension-auto-scroll'
 
 import { Intersection } from '@splidejs/splide-extension-intersection'
 import gsap from 'gsap'
+// import View360, { EquirectProjection } from '@egjs/view360'
 
+// import videojs from 'video.js'
+// import 'video.js/dist/video-js.css'
+// import * as THREE from 'three'
+// import 'videojs-vr'
+// import 'videojs-vr/dist/videojs-vr.min.js'
+// import vr from 'videojs-vr'
+// import 'videojs-panorama'
 selAll('video').forEach((el) => {
   // el.pause()
 })
@@ -35,8 +43,22 @@ export default function Home() {
       const button$ = item.querySelector('.button')
       const _modal$ = item.querySelector('.mod-w')
 
-      const modal$ = _modal$.cloneNode(true) // to remove event listeners
-      _modal$.remove()
+      const videoW = item.querySelector('.mod__video-w')
+      const video = item.querySelector('video')
+      const videoStyle = getComputedStyle(video)
+      const backgroundImage = videoStyle.getPropertyValue('background-image')
+      const urlMatch = backgroundImage.match(/url\(["']?([^"']*)["']?\)/)
+      const url = urlMatch ? urlMatch[1] : null
+
+      const videoUrl = item.querySelector('source').getAttribute('src')
+      const wEmbed = item.querySelector('.w-embed')
+
+      const canvas = document.createElement('canvas')
+      videoW.appendChild(canvas)
+
+      const modal$ = _modal$
+      // const modal$ = _modal$.cloneNode(true) // to remove event listeners
+      // _modal$.remove()
       // modal$.setAttribute('fs-scrolldisable-element', 'when-visible')
       // modal.querySelector('.mod__info').setAttribute('data-modal', '')
       const modalX$ = modal$.querySelector('.mod__x-w')
@@ -128,68 +150,4 @@ export default function Home() {
     connectSplideArrows(splide, '.testimonials__arrows')
   }
   testInit()
-  /*
-
-  function testimonialsInit() {
-    const name = 'testimonials'
-    addSplideClasses(name + '__slider')
-    const splide = new Splide('.' + name + '__slider', {
-      // perPage: 1,
-      // width: '100%',
-      autoplay: false,
-      // autoHeight: true,
-      type: 'fade',
-      rewind: true,
-      pagination: false,
-      arrows: false,
-    })
-
-    addSplideClasses(name + '__img-slider')
-    const img = new Splide('.' + name + '__img-slider', {
-      gap: '1rem',
-      // direction: 'ttb',
-      // height: '35rem',
-      // autoHeight: true,
-      // perPage: 1,
-      // rewind: true,
-      pagination: false,
-      arrows: false,
-      // isNavigation: true,
-      speed: 1500,
-      easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
-      breakpoints: {
-        478: {
-          perPage: 1,
-          gap: '0.5rem',
-        },
-      },
-    })
-    splide.sync(img)
-    splide.mount()
-    img.mount()
-    connectSplideBullets(splide, '.bullets.is--' + name)
-  }
-  testimonialsInit()
-  function galleryInit() {
-    const classPrefix = 'cta'
-    addSplideClasses(classPrefix + '__slider')
-    const slider = new Splide(sel(`.${classPrefix}__slider`), {
-      arrows: false,
-      pagination: false,
-      gap: '2.5rem',
-      type: 'loop',
-      autoWidth: true,
-      autoScroll: { speed: 0.6, autoStart: false },
-      breakpoints: {
-        767: {
-          gap: '1rem',
-        },
-      },
-    })
-
-    splideAutoWidth(slider)
-    slider.mount({ AutoScroll })
-  }
-  galleryInit()
-  */
 }

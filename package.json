@@ -12,11 +12,17 @@
     "vite": "^5.4.1"
   },
   "dependencies": {
+    "@egjs/view360": "^4.0.0-beta.7",
     "@splidejs/splide": "^4.1.4",
     "@splidejs/splide-extension-auto-scroll": "^0.5.3",
     "@splidejs/splide-extension-intersection": "^0.2.0",
     "@studio-freight/lenis": "^1.0.42",
     "gsap": "^3.12.5",
-    "stylus": "^0.63.0"
+    "kaleidoscopejs": "^1.1.1",
+    "stylus": "^0.63.0",
+    "three": "^0.169.0",
+    "video.js": "^8.17.4",
+    "videojs-panorama": "^0.1.7",
+    "videojs-vr": "^2.0.0"
   }
 }
