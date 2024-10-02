@@ -5,6 +5,7 @@ import { AutoScroll } from '@splidejs/splide-extension-auto-scroll'
 
 import { Intersection } from '@splidejs/splide-extension-intersection'
 import gsap from 'gsap'
+// import { on } from 'stylus/lib/renderer'
 // import View360, { EquirectProjection } from '@egjs/view360'
 
 // import videojs from 'video.js'
@@ -125,7 +126,9 @@ export default function Home() {
     nav.mount()
     activeSlide$ = nav.Components.Slides.get()[0].slide
   }
-  momentInit()
+  setTimeout(() => {
+    momentInit()
+  }, 1000)
 
   function testInit() {
     const name = 'testimonials'
