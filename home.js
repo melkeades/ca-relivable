@@ -62,6 +62,8 @@ export default function Home() {
       // _modal$.remove()
       // modal$.setAttribute('fs-scrolldisable-element', 'when-visible')
       // modal.querySelector('.mod__info').setAttribute('data-modal', '')
+      const _modalX$ = modal$.querySelector('.mod__x-w')
+      _modalX$.replaceWith(_modalX$.cloneNode(true))
       const modalX$ = modal$.querySelector('.mod__x-w')
       // const modalDim$ = modal$.querySelector('.mod__dim')
 
