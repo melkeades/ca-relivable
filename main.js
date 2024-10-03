@@ -1,6 +1,7 @@
 import './style.styl'
 import { sel } from './utils'
 import Home from './home'
+import Test from './test.jsx'
 
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -17,6 +18,9 @@ const _dataPage = sel('.page-wrapper') || sel('body')
 const dataPage = _dataPage?.getAttribute('data-page')
 switch (dataPage) {
   case 'home':
+    Home()
+    break
+  case 'test':
     Home()
     break
 

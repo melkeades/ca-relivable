@@ -24,62 +24,64 @@ export default function Home() {
       arrows: false,
     })
 
-    const list$ = sel(`.${name}__nav-slider .w-dyn-items`)
-    const item$a = list$.querySelectorAll('.w-dyn-item')
-    let div = document.createElement('div')
-    div.classList.add(name + '__mod-w')
+    if (sel('.moments-sec .mod-w')) {
+      const list$ = sel(`.${name}__nav-slider .w-dyn-items`)
+      const item$a = list$.querySelectorAll('.w-dyn-item')
+      let div = document.createElement('div')
+      div.classList.add(name + '__mod-w')
 
-    item$a.forEach((item, i) => {
-      const button$ = item.querySelector('.button')
-      const modal$ = item.querySelector('.mod-w')
+      item$a.forEach((item, i) => {
+        const button$ = item.querySelector('.button')
+        const modal$ = item.querySelector('.mod-w')
 
-      // const videoW = item.querySelector('.mod__video-w')
-      const video = item.querySelector('video')
-      // const videoStyle = getComputedStyle(video)
-      // const backgroundImage = videoStyle.getPropertyValue('background-image')
-      // const urlMatch = backgroundImage.match(/url\(["']?([^"']*)["']?\)/)
-      // const url = urlMatch ? urlMatch[1] : null
+        // const videoW = item.querySelector('.mod__video-w')
+        const video = item.querySelector('video')
+        // const videoStyle = getComputedStyle(video)
+        // const backgroundImage = videoStyle.getPropertyValue('background-image')
+        // const urlMatch = backgroundImage.match(/url\(["']?([^"']*)["']?\)/)
+        // const url = urlMatch ? urlMatch[1] : null
 
-      // const videoUrl = item.querySelector('source').getAttribute('src')
-      // const wEmbed = item.querySelector('.w-embed')
+        // const videoUrl = item.querySelector('source').getAttribute('src')
+        // const wEmbed = item.querySelector('.w-embed')
 
-      // const canvas = document.createElement('canvas')
-      // videoW.appendChild(canvas)
+        // const canvas = document.createElement('canvas')
+        // videoW.appendChild(canvas)
 
-      // const modal$ = _modal$
-      // const modal$ = _modal$.cloneNode(true) // to remove event listeners
-      // _modal$.remove()
-      // modal$.setAttribute('fs-scrolldisable-element', 'when-visible')
-      // modal.querySelector('.mod__info').setAttribute('data-modal', '')
-      const _modalX$ = modal$.querySelector('.mod__x-w')
-      _modalX$.replaceWith(_modalX$.cloneNode(true))
-      const modalX$ = modal$.querySelector('.mod__x-w')
-      // const modalDim$ = modal$.querySelector('.mod__dim')
+        // const modal$ = _modal$
+        // const modal$ = _modal$.cloneNode(true) // to remove event listeners
+        // _modal$.remove()
+        // modal$.setAttribute('fs-scrolldisable-element', 'when-visible')
+        // modal.querySelector('.mod__info').setAttribute('data-modal', '')
+        const _modalX$ = modal$.querySelector('.mod__x-w')
+        _modalX$.replaceWith(_modalX$.cloneNode(true))
+        const modalX$ = modal$.querySelector('.mod__x-w')
+        // const modalDim$ = modal$.querySelector('.mod__dim')
 
-      // div.appendChild(modal$)
-      div.appendChild(modal$)
-      const modalTl = gsap.timeline({
-        defaults: {
-          duration: 0.8,
-          ease: 'none',
-        },
-        paused: true,
-      })
-      modalTl.set(modal$, { display: 'block' }, 0).fromTo(modal$, { autoAlpha: 0, '--mod-y': '5rem' }, { autoAlpha: 1, '--mod-y': '0' }, 0)
+        // div.appendChild(modal$)
+        div.appendChild(modal$)
+        const modalTl = gsap.timeline({
+          defaults: {
+            duration: 0.8,
+            ease: 'none',
+          },
+          paused: true,
+        })
+        modalTl.set(modal$, { display: 'block' }, 0).fromTo(modal$, { autoAlpha: 0, '--mod-y': '5rem' }, { autoAlpha: 1, '--mod-y': '0' }, 0)
 
-      button$.onclick = () => {
-        gsap.to(modalTl, { time: modalTl.duration(), duration: modalTl.duration(), ease: 'power4.out' })
-        video.play()
-      }
-      ;[modalX$].forEach((el) => {
-        el.onclick = () => {
-          gsap.to(modalTl, { time: 0, duration: modalTl.duration(), ease: 'power4.out', overwrite: true })
-          video.pause()
+        button$.onclick = () => {
+          gsap.to(modalTl, { time: modalTl.duration(), duration: modalTl.duration(), ease: 'power4.out' })
+          video.play()
         }
+        ;[modalX$].forEach((el) => {
+          el.onclick = () => {
+            gsap.to(modalTl, { time: 0, duration: modalTl.duration(), ease: 'power4.out', overwrite: true })
+            video.pause()
+          }
+        })
       })
-    })
-    const section$ = sel(`.${name}-sec`)
-    section$.appendChild(div)
+      const section$ = sel(`.${name}-sec`)
+      section$.appendChild(div)
+    }
 
     addSplideClasses(name + '__nav-slider')
     const nav = new Splide('.' + name + '__nav-slider', {

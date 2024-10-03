@@ -3,11 +3,23 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 3,
             "patches": [
                 {
                     "date": 1727817633301,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1727944405772,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n import './style.styl'\r\n import { sel } from './utils'\r\n import Home from './home'\r\n+import Test from './test'\r\n \r\n import gsap from 'gsap'\r\n import { ScrollTrigger } from 'gsap/ScrollTrigger'\r\n import Lenis from '@studio-freight/lenis'\r\n@@ -18,8 +19,11 @@\n switch (dataPage) {\r\n   case 'home':\r\n     Home()\r\n     break\r\n+    case 'test':\r\n+      Test()\r\n+      break\r\n \r\n   case 'error':\r\n     Error()\r\n     break\r\n"
+                },
+                {
+                    "date": 1727946930706,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import './style.styl'\r\n import { sel } from './utils'\r\n import Home from './home'\r\n-import Test from './test'\r\n+import Test from './test.jsx'\r\n \r\n import gsap from 'gsap'\r\n import { ScrollTrigger } from 'gsap/ScrollTrigger'\r\n import Lenis from '@studio-freight/lenis'\r\n"
+                },
+                {
+                    "date": 1727949858057,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n   case 'home':\r\n     Home()\r\n     break\r\n   case 'test':\r\n-    Test()\r\n+    Home()\r\n     break\r\n \r\n   case 'error':\r\n     Error()\r\n"
                 }
             ],
             "date": 1727817633301,

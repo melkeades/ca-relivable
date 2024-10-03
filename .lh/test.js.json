@@ -1,0 +1,26 @@
+{
+    "sourceFile": "test.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1727944460764,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1727944500770,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,4 @@\n+import './player.mjs'\r\n export default function Test() {\r\n   console.log('Test')\r\n }\r\n"
+                },
+                {
+                    "date": 1727944532875,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,4 @@\n-import './player.mjs'\r\n+import './player.ts'\r\n export default function Test() {\r\n   console.log('Test')\r\n }\r\n"
+                }
+            ],
+            "date": 1727944460764,
+            "name": "Commit-0",
+            "content": "export default function Test() {\r\n\r\n\r\n    console.log('Test')\r\n    }"
+        }
+    ]
+}
