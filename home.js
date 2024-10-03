@@ -81,6 +81,7 @@ export default function Home() {
       })
       const section$ = sel(`.${name}-sec`)
       section$.appendChild(div)
+      console.log('section$', section$)
     }
 
     addSplideClasses(name + '__nav-slider')
@@ -108,9 +109,9 @@ export default function Home() {
     nav.mount()
     activeSlide$ = nav.Components.Slides.get()[0].slide
   }
-  // setTimeout(() => {
-  momentInit()
-  // }, 1000)
+  setTimeout(() => {
+    momentInit()
+  }, 500)
 
   function testInit() {
     const name = 'testimonials'
