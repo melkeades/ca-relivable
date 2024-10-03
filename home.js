@@ -81,7 +81,7 @@ export default function Home() {
       })
       const section$ = sel(`.${name}-sec`)
       section$.appendChild(div)
-      console.log('section$', section$)
+      // console.log('section$', section$)
     }
 
     addSplideClasses(name + '__nav-slider')
@@ -101,6 +101,9 @@ export default function Home() {
 
     nav.on('active', function (index) {
       activeSlide$ = index.slide
+      // const currentIndex = nav.index
+      // activeSlide$ = nav.Components.Slides.get()[currentIndex].slide
+      // log('activeSlide$', activeSlide$)
     })
     nav.on('autoplay:playing click', function (rate) {
       if (activeSlide$) {
