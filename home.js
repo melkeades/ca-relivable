@@ -93,25 +93,24 @@ export default function Home() {
       autoplay: true,
       speed: 1500,
     })
-    let activeSlide$
-
-    nav.on('active', function (index) {
-      activeSlide$ = index.slide
-    })
-    nav.on('autoplay:playing', function (rate) {
-      if (activeSlide$) {
-        activeSlide$.style.setProperty('--width', rate * 100 + '%')
-      }
-    })
 
     splide.sync(nav)
     splide.mount()
     nav.mount()
-    activeSlide$ = nav.Components.Slides.get()[0].slide
+    let activeSlide$ = nav.Components.Slides.get()[0].slide
+
+    nav.on('active', function (index) {
+      activeSlide$ = index.slide
+    })
+    nav.on('autoplay:playing click', function (rate) {
+      if (activeSlide$) {
+        activeSlide$.style.setProperty('--width', rate * 100 + '%')
+      }
+    })
   }
-  setTimeout(() => {
-    momentInit()
-  }, 500)
+  // setTimeout(() => {
+  momentInit()
+  // }, 500)
 
   function testInit() {
     const name = 'testimonials'
