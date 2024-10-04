@@ -73,14 +73,10 @@ export default function Home() {
       let div = document.createElement('div')
       div.classList.add(name + '__mod-w')
 
-      item$a.forEach((item, i) => {
-        const _button$ = item.querySelector('.button')
-        _button$.replaceWith(_button$.cloneNode(true))
-        const button$ = item.querySelector('.button')
-        const modal$ = item.querySelector('.mod-w')
-
-        const video = item.querySelector('video')
-        const videoUrl = item.querySelector('source').src
+      function playerInit(el, _videoUrl) {
+        const video = el.querySelector('video')
+        console.log(video)
+        const videoUrl = _videoUrl || el.querySelector('source').src
 
         const player = videojs(video, {
           controls: true,
@@ -95,13 +91,23 @@ export default function Home() {
         // videojs.registerPlugin('hlsQualitySelector', hlsQualitySelector)
         player.ready(() => {
           player.controls(true)
-          player.vr({ projection: '360' })
+          // player.vr({ projection: '360' })
           player.hlsQualitySelector({
             displayCurrentQuality: true,
           })
-          // player.xr()
+          player.xr()
           // const qualityLevels = player.qualityLevels()
         })
+        return player
+      }
+
+      item$a.forEach((item, i) => {
+        let player = null
+
+        const _button$ = item.querySelector('.button')
+        _button$.replaceWith(_button$.cloneNode(true))
+        const button$ = item.querySelector('.button')
+        const modal$ = item.querySelector('.mod-w')
 
         const _modalX$ = modal$.querySelector('.mod__x-w')
         _modalX$.replaceWith(_modalX$.cloneNode(true))
@@ -118,15 +124,25 @@ export default function Home() {
         modalTl.set(modal$, { display: 'block' }, 0).fromTo(modal$, { autoAlpha: 0 }, { autoAlpha: 1 }, 0)
 
         button$.onclick = () => {
+          const _videoUrl = button$.getAttribute('data-video-url')
+          player = playerInit(modal$, _videoUrl)
+          modal$.style.display = 'block'
           gsap.to(modalTl, { time: modalTl.duration(), duration: modalTl.duration(), ease: 'power4.out' })
-          video.play()
+          player.play()
         }
-        ;[modalX$].forEach((el) => {
-          el.onclick = () => {
-            gsap.to(modalTl, { time: 0, duration: modalTl.duration(), ease: 'power4.out', overwrite: true })
-            video.pause()
-          }
-        })
+        modalX$.onclick = () => {
+          gsap.to(modalTl, {
+            time: 0,
+            duration: modalTl.duration(),
+            ease: 'power4.out',
+            overwrite: true,
+            onComplete: () => {
+              player.pause()
+              // player.dispose()
+              modal$.style.display = 'none'
+            },
+          })
+        }
       })
       const section$ = sel(`.${name}-sec`)
       section$.appendChild(div)
