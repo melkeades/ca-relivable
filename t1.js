@@ -5,7 +5,7 @@ import 'videojs-xr'
 import 'videojs-contrib-quality-levels'
 import hlsQualitySelector from 'videojs-hls-quality-selector'
 
-// import 'videojs-hls-quality-selector'
+import 'videojs-hls-quality-selector'
 
 import { sel } from './utils'
 
@@ -30,13 +30,28 @@ export default function t1() {
       displayCurrentQuality: true,
     })
     // console.log(player.hlsQualitySelector)
-    const qualityLevels = player.qualityLevels()
 
     // Log available quality levels
     // for (let i = 0; i < qualityLevels.length; i++) {
     //   const level = qualityLevels[i]
     //   console.log(`Quality level: ${level.height}p`)
     // }
+    const qualityLevels = player.qualityLevels()
+
+    // Wait until quality levels are populated
+    qualityLevels.on('addqualitylevel', () => {
+      // Iterate over the available quality levels
+      for (let i = 0; i < qualityLevels.length; i++) {
+        const level = qualityLevels[i]
+
+        // Set the default quality (e.g., 720p)
+        if (level.height === 720) {
+          level.enabled = true // Enable the 720p level
+        } else {
+          level.enabled = false // Disable other levels
+        }
+      }
+    })
 
     console.log(player.paused(), qualityLevels.length)
   })
