@@ -1,6 +1,7 @@
 import './style.styl'
 import { sel } from './utils'
 import Home from './home'
+import t1 from './t1'
 // import Test from './test.jsx'
 
 import gsap from 'gsap'
@@ -22,6 +23,9 @@ switch (dataPage) {
     break
   case 'test':
     Home()
+    break
+  case 't1':
+    t1()
     break
 
   case 'error':

@@ -25,6 +25,7 @@
     "@splidejs/splide-extension-auto-scroll": "^0.5.3",
     "@splidejs/splide-extension-intersection": "^0.2.0",
     "@studio-freight/lenis": "^1.0.42",
+    "@videojs/http-streaming": "^3.10.0",
     "class-variance-authority": "^0.7.0",
     "gsap": "^3.12.5",
     "hls.js": "^1.5.15",
@@ -36,7 +37,9 @@
     "react-dom": "^18.3.1",
     "stylus": "^0.63.0",
     "three": "^0.169.0",
-    "video.js": "^8.17.4",
+    "video.js": "7.x.x",
+    "videojs-contrib-quality-levels": "3",
+    "videojs-hls-quality-selector": "1.x.x",
     "videojs-panorama": "^0.1.7",
     "videojs-vr": "^2.0.0"
   }

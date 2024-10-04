@@ -6,6 +6,12 @@ import { defineConfig } from 'vite'
 export default defineConfig({
   // plugins: [eslintPlugin({ cache: false })],
   // plugins: [basicSsl()],
+  optimizeDeps: {
+    include: ['video.js', 'videojs-vr'],
+  },
+  ssr: {
+    noExternal: ['video.js', 'videojs-vr'],
+  },
   server: {
     // https: true,
     host: '127.0.0.1',
