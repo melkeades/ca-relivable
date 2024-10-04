@@ -30,6 +30,21 @@ export default function Home() {
   gsap.registerPlugin(ScrollTrigger)
 
   const navBtnLo$ = sel('.navbar__learn-btn-w')
+  const navBtn$ = sel('.navbar__learn-btn')
+  const formMod$ = sel('.form-mod-w')
+  const formModX$ = formMod$.querySelector('.mod__x-w')
+  const formDim$ = sel('.form-mod__dim')
+  gsap.set(formMod$, { display: 'block', autoAlpha: 0, x: '5rem' }, 0)
+  const formMidTl = gsap.timeline({ defaults: { duration: 1, ease: 'power3.inOut' }, paused: true }).to(formMod$, { autoAlpha: 1, x: '0rem' })
+  navBtn$.onclick = () => {
+    // gsap.to(formMidTl, { time: 0, duration: formMidTl.duration(), ease: 'power4.out' })
+    formMidTl.play()
+  }
+  ;[formModX$, formDim$].forEach((el) => {
+    el.addEventListener('click', () => {
+      formMidTl.reverse()
+    })
+  })
 
   mm.add('(min-width: 991px)', () => {
     if (navBtnLo$) {
@@ -79,13 +94,23 @@ export default function Home() {
         const videoUrl = _videoUrl || el.querySelector('source').src
 
         const player = videojs(video, {
-          controls: true,
-          sources: [
-            {
-              src: videoUrl,
-              type: 'application/x-mpegURL',
+          plugins: {
+            xr: {
+              initialView: {
+                fov: 50, // Adjust this value to zoom in/out
+                yaw: 0, // You can set initial view direction (horizontal)
+                pitch: 0, // You can set initial view direction (vertical)
+              },
             },
-          ],
+          },
+
+          // controls: true,
+          // sources: [
+          //   {
+          //     src: videoUrl,
+          //     type: 'application/x-mpegURL',
+          //   },
+          // ],
         })
 
         // videojs.registerPlugin('hlsQualitySelector', hlsQualitySelector)
@@ -96,6 +121,14 @@ export default function Home() {
             displayCurrentQuality: true,
           })
           player.xr()
+          // Function to zoom out (increase FOV)
+          // const xrScene = player.xr().scene // Access the XR scene
+          console.log(player.xr().player)
+
+          // const xrCamera = xrScene.camera
+          // xrCamera.fov = Math.min(100, xrCamera.fov + 100) // Increase FOV
+          // xrCamera.updateProjectionMatrix()
+
           // const qualityLevels = player.qualityLevels()
         })
         return player
