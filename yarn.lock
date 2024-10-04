@@ -975,6 +975,11 @@ fsevents@~2.3.2, fsevents@~2.3.3:
   resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-2.3.3.tgz#cac6407785d03675a2a5e1a5305c697b347d90d6"
   integrity sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==
 
+gl-matrix@^2.8.1:
+  version "2.8.1"
+  resolved "https://registry.yarnpkg.com/gl-matrix/-/gl-matrix-2.8.1.tgz#1c7873448eac61d2cd25803a074e837bd42581a3"
+  integrity sha512-0YCjVpE3pS5XWlN3J4X7AiAx65+nqAI54LndtVFnQZB6G/FVLkZH8y8V6R3cIoOQR4pUdfwQGd1iwyoXHJ4Qfw==
+
 gl-matrix@^3.4.3:
   version "3.4.3"
   resolved "https://registry.yarnpkg.com/gl-matrix/-/gl-matrix-3.4.3.tgz#fc1191e8320009fd4d20e9339595c6041ddc22c9"
@@ -1627,7 +1632,7 @@ three-stdlib@^2.29.9:
     fflate "^0.6.9"
     potpack "^1.0.1"
 
-three@0.125.2:
+three@0.125.2, three@^0.125.0:
   version "0.125.2"
   resolved "https://registry.yarnpkg.com/three/-/three-0.125.2.tgz#dcba12749a2eb41522e15212b919cd3fbf729b12"
   integrity sha512-7rIRO23jVKWcAPFdW/HREU2NZMGWPBZ4XwEMt0Ak0jwLUKVJhcKM55eCBWyGZq/KiQbeo1IeuAoo/9l2dzhTXA==
@@ -1704,7 +1709,7 @@ uuid@^9.0.1:
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-9.0.1.tgz#e188d4c8853cc722220392c424cd637f32293f30"
   integrity sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA==
 
-video.js@7.x.x, "video.js@^6 || ^7", video.js@^7.5.5:
+video.js@7.x.x, "video.js@^6 || ^7", video.js@^7.5.5, video.js@^7.7.6:
   version "7.21.6"
   resolved "https://registry.yarnpkg.com/video.js/-/video.js-7.21.6.tgz#a42d817c42d8d91538b72197a0874aeb01c76ce9"
   integrity sha512-m41TbODrUCToVfK1aljVd296CwDQnCRewpIm5tTXMuV87YYSGw1H+VDOaV45HlpcWSsTWWLF++InDgGJfthfUw==
@@ -1843,6 +1848,16 @@ videojs-vtt.js@0.15.5, videojs-vtt.js@^0.15.5:
   dependencies:
     global "^4.3.1"
 
+videojs-xr@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/videojs-xr/-/videojs-xr-0.1.0.tgz#5f7c31e5a77999a1bf91b224e75050f292d575da"
+  integrity sha512-MybCG5lyljecJD2i0W9NxOpG2RaXqiGw4+H/gClUZ/HjQQCf5IqrVIn8KW3CrBx9d29D32YLzfTtsEu+CB86Hg==
+  dependencies:
+    global "^4.4.0"
+    three "^0.125.0"
+    video.js "^7.7.6"
+    webxr-polyfill "^2.0.2"
+
 vite@^5.4.1:
   version "5.4.8"
   resolved "https://registry.yarnpkg.com/vite/-/vite-5.4.8.tgz#af548ce1c211b2785478d3ba3e8da51e39a287e8"
@@ -1875,6 +1890,14 @@ webvr-polyfill@0.10.12:
   integrity sha512-trDJEVUQnRIVAnmImjEQ0BlL1NfuWl8+eaEdu+bs4g59c7OtETi/5tFkgEFDRaWEYwHntXs/uFF3OXZuutNGGA==
   dependencies:
     cardboard-vr-display "^1.0.19"
+
+webxr-polyfill@^2.0.2:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/webxr-polyfill/-/webxr-polyfill-2.0.3.tgz#8248787e84bbc7b9ddc1fa67ca89a663259fe2fe"
+  integrity sha512-lgTKYVeD4HeTwWdJN+SeS6iflGx3epz/3dww9X4GyuuXmYGAV5p8l34jUM/HRGHn1jKS3oZNZRC/J9MlSk/Zhg==
+  dependencies:
+    cardboard-vr-display "^1.0.19"
+    gl-matrix "^2.8.1"
 
 which@^2.0.1:
   version "2.0.2"

@@ -41,6 +41,7 @@
     "videojs-contrib-quality-levels": "3",
     "videojs-hls-quality-selector": "1.x.x",
     "videojs-panorama": "^0.1.7",
-    "videojs-vr": "^2.0.0"
+    "videojs-vr": "^2.0.0",
+    "videojs-xr": "^0.1.0"
   }
 }
