@@ -1,8 +1,7 @@
 import videojs from 'video.js'
 import 'video.js/dist/video-js.css'
 // import 'videojs-vr/dist/videojs-vr.css'
-// import 'videojs-vr'
-import 'videojs-xr'
+import 'videojs-vr'
 import 'videojs-contrib-quality-levels'
 import hlsQualitySelector from 'videojs-hls-quality-selector'
 
@@ -25,8 +24,7 @@ export default function t1() {
   // videojs.registerPlugin('hlsQualitySelector', hlsQualitySelector)
   player.ready(() => {
     player.controls(true)
-    // player.vr({ projection: '360' })
-    player.xr()
+    player.vr({ projection: '360' })
     player.hlsQualitySelector({
       displayCurrentQuality: true,
     })
