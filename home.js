@@ -157,6 +157,7 @@ export default function Home() {
       isNavigation: true,
       autoplay: true,
       speed: 1500,
+      drag: false,
     })
 
     splide.sync(nav)
