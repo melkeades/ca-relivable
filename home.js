@@ -129,7 +129,8 @@ export default function Home() {
           player.xr()
           // Function to zoom out (increase FOV)
           // const xrScene = player.xr().scene // Access the XR scene
-          console.log(player.xr().player)
+          console.log(player.xr())
+          // console.log(player.xr().player)
 
           // const xrCamera = xrScene.camera
           // xrCamera.fov = Math.min(100, xrCamera.fov + 100) // Increase FOV
