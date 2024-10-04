@@ -1,6 +1,7 @@
 import './style.styl'
 import { sel } from './utils'
 import Home from './home'
+import Home2 from './home2'
 import t1 from './t1'
 // import Test from './test.jsx'
 
@@ -23,6 +24,9 @@ switch (dataPage) {
     break
   case 'test':
     Home()
+    break
+  case 'home2':
+    Home2()
     break
   case 't1':
     t1()

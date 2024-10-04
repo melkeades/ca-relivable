@@ -1,50 +1,14 @@
-import {
-  addSplideClasses,
-  connectSplideArrows,
-  connectSplideBullets,
-  connectSplideCarouselBullets,
-  mm,
-  onDomReady,
-  sel,
-  selAll,
-  splideAutoWidth,
-  vh,
-} from './utils'
+import { addSplideClasses, connectSplideArrows, connectSplideBullets, connectSplideCarouselBullets, onDomReady, sel, selAll, splideAutoWidth } from './utils'
 import '@splidejs/splide/css'
 import Splide from '@splidejs/splide'
 
 import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 selAll('video').forEach((el) => {
   // el.pause()
 })
+
 export default function Home() {
-  gsap.registerPlugin(ScrollTrigger)
-
-  const navBtnLo$ = sel('.navbar__learn-btn-w')
-
-  mm.add('(min-width: 991px)', () => {
-    if (navBtnLo$) {
-      const navbarTl = gsap.to(navBtnLo$, {
-        // gridTemplateColumns: 'auto 1fr',
-        width: 'auto',
-        opacity: 1,
-        // yPercent: 10,
-        ease: 'linear',
-        paused: true,
-      })
-      ScrollTrigger.create({
-        trigger: 'body',
-        start: vh(100) + ' top',
-        onToggle({ direction }) {
-          // to reverse the easing
-          gsap.to(navbarTl, { duration: 1.5, progress: direction === 1 ? 1 : 0, ease: 'expo.out' })
-        },
-      })
-    }
-  })
-
   function momentInit() {
     const name = 'moments'
 
