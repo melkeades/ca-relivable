@@ -1,7 +1,6 @@
+// import 'videojs-vr'
 import videojs from 'video.js'
 import 'video.js/dist/video-js.css'
-// import 'videojs-vr/dist/videojs-vr.css'
-// import 'videojs-vr'
 import 'videojs-xr'
 import 'videojs-contrib-quality-levels'
 import hlsQualitySelector from 'videojs-hls-quality-selector'

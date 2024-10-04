@@ -1,8 +1,14 @@
 import { addSplideClasses, connectSplideArrows, connectSplideBullets, connectSplideCarouselBullets, onDomReady, sel, selAll, splideAutoWidth } from './utils'
 import '@splidejs/splide/css'
 import Splide from '@splidejs/splide'
-
 import gsap from 'gsap'
+
+import videojs from 'video.js'
+import 'video.js/dist/video-js.css'
+import 'videojs-xr'
+import 'videojs-vr'
+import 'videojs-contrib-quality-levels'
+import hlsQualitySelector from 'videojs-hls-quality-selector'
 
 selAll('video').forEach((el) => {
   // el.pause()
@@ -31,33 +37,39 @@ export default function Home() {
       div.classList.add(name + '__mod-w')
 
       item$a.forEach((item, i) => {
+        const _button$ = item.querySelector('.button')
+        _button$.replaceWith(_button$.cloneNode(true))
         const button$ = item.querySelector('.button')
         const modal$ = item.querySelector('.mod-w')
 
-        // const videoW = item.querySelector('.mod__video-w')
         const video = item.querySelector('video')
-        // const videoStyle = getComputedStyle(video)
-        // const backgroundImage = videoStyle.getPropertyValue('background-image')
-        // const urlMatch = backgroundImage.match(/url\(["']?([^"']*)["']?\)/)
-        // const url = urlMatch ? urlMatch[1] : null
+        const videoUrl = item.querySelector('source').src
 
-        // const videoUrl = item.querySelector('source').getAttribute('src')
-        // const wEmbed = item.querySelector('.w-embed')
+        const player = videojs(video, {
+          controls: true,
+          sources: [
+            {
+              src: videoUrl,
+              type: 'application/x-mpegURL',
+            },
+          ],
+        })
 
-        // const canvas = document.createElement('canvas')
-        // videoW.appendChild(canvas)
+        // videojs.registerPlugin('hlsQualitySelector', hlsQualitySelector)
+        player.ready(() => {
+          player.controls(true)
+          // player.vr({ projection: '360' })
+          player.hlsQualitySelector({
+            displayCurrentQuality: true,
+          })
+          player.xr()
+          // const qualityLevels = player.qualityLevels()
+        })
 
-        // const modal$ = _modal$
-        // const modal$ = _modal$.cloneNode(true) // to remove event listeners
-        // _modal$.remove()
-        // modal$.setAttribute('fs-scrolldisable-element', 'when-visible')
-        // modal.querySelector('.mod__info').setAttribute('data-modal', '')
         const _modalX$ = modal$.querySelector('.mod__x-w')
         _modalX$.replaceWith(_modalX$.cloneNode(true))
         const modalX$ = modal$.querySelector('.mod__x-w')
-        // const modalDim$ = modal$.querySelector('.mod__dim')
 
-        // div.appendChild(modal$)
         div.appendChild(modal$)
         const modalTl = gsap.timeline({
           defaults: {
@@ -66,7 +78,7 @@ export default function Home() {
           },
           paused: true,
         })
-        modalTl.set(modal$, { display: 'block' }, 0).fromTo(modal$, { autoAlpha: 0, '--mod-y': '5rem' }, { autoAlpha: 1, '--mod-y': '0' }, 0)
+        modalTl.set(modal$, { display: 'block' }, 0).fromTo(modal$, { autoAlpha: 0 }, { autoAlpha: 1 }, 0)
 
         button$.onclick = () => {
           gsap.to(modalTl, { time: modalTl.duration(), duration: modalTl.duration(), ease: 'power4.out' })
@@ -81,7 +93,6 @@ export default function Home() {
       })
       const section$ = sel(`.${name}-sec`)
       section$.appendChild(div)
-      // console.log('section$', section$)
     }
 
     addSplideClasses(name + '__nav-slider')
