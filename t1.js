@@ -1,7 +1,8 @@
 import videojs from 'video.js'
 import 'video.js/dist/video-js.css'
 // import 'videojs-vr/dist/videojs-vr.css'
-import 'videojs-vr'
+// import 'videojs-vr'
+import 'videojs-xr'
 import 'videojs-contrib-quality-levels'
 import hlsQualitySelector from 'videojs-hls-quality-selector'
 
@@ -24,7 +25,8 @@ export default function t1() {
   // videojs.registerPlugin('hlsQualitySelector', hlsQualitySelector)
   player.ready(() => {
     player.controls(true)
-    player.vr({ projection: '360' })
+    // player.vr({ projection: '360' })
+    player.xr()
     player.hlsQualitySelector({
       displayCurrentQuality: true,
     })
@@ -32,14 +34,14 @@ export default function t1() {
     const qualityLevels = player.qualityLevels()
 
     // Log available quality levels
-    for (let i = 0; i < qualityLevels.length; i++) {
-      const level = qualityLevels[i]
-      console.log(`Quality level: ${level.height}p`)
-    }
+    // for (let i = 0; i < qualityLevels.length; i++) {
+    //   const level = qualityLevels[i]
+    //   console.log(`Quality level: ${level.height}p`)
+    // }
 
     console.log(player.paused(), qualityLevels.length)
   })
   setTimeout(() => {
     console.log(player.pause())
-  }, 100)
+  }, 300)
 }
