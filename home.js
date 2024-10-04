@@ -34,12 +34,18 @@ export default function Home() {
   const formMod$ = sel('.form-mod-w')
   const formModX$ = formMod$.querySelector('.mod__x-w')
   const formDim$ = sel('.form-mod__dim')
+  const bookBtn$ = sel('#book')
   gsap.set(formMod$, { display: 'block', autoAlpha: 0, x: '5rem' }, 0)
   const formMidTl = gsap.timeline({ defaults: { duration: 1, ease: 'power3.inOut' }, paused: true }).to(formMod$, { autoAlpha: 1, x: '0rem' })
-  navBtn$.onclick = () => {
-    // gsap.to(formMidTl, { time: 0, duration: formMidTl.duration(), ease: 'power4.out' })
-    formMidTl.play()
-  }
+  // navBtn$.onclick = () => {
+  //   // gsap.to(formMidTl, { time: 0, duration: formMidTl.duration(), ease: 'power4.out' })
+  //   formMidTl.play()
+  // }
+  ;[navBtn$, bookBtn$].forEach((el) => {
+    el.addEventListener('click', () => {
+      formMidTl.play()
+    })
+  })
   ;[formModX$, formDim$].forEach((el) => {
     el.addEventListener('click', () => {
       formMidTl.reverse()
