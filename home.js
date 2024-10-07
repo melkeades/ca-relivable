@@ -19,9 +19,10 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import videojs from 'video.js'
 import 'video.js/dist/video-js.css'
 // import 'videojs-xr'
-import 'videojs-vr'
+// import 'videojs-vr'
 import 'videojs-contrib-quality-levels'
 import hlsQualitySelector from 'videojs-hls-quality-selector'
+import Xr from 'videojs-xr'
 
 selAll('video').forEach((el) => {
   // el.pause()
@@ -42,35 +43,36 @@ export default function Home() {
   //   formMidTl.play()
   // }
   ;[navBtn$, bookBtn$].forEach((el) => {
+    if (!el) return
     el.addEventListener('click', () => {
       formMidTl.play()
     })
   })
   ;[formModX$, formDim$].forEach((el) => {
+    if (!el) return
     el.addEventListener('click', () => {
       formMidTl.reverse()
     })
   })
 
   mm.add('(min-width: 991px)', () => {
-    if (navBtnLo$) {
-      const navbarTl = gsap.to(navBtnLo$, {
-        // gridTemplateColumns: 'auto 1fr',
-        width: 'auto',
-        opacity: 1,
-        // yPercent: 10,
-        ease: 'linear',
-        paused: true,
-      })
-      ScrollTrigger.create({
-        trigger: 'body',
-        start: vh(100) + ' top',
-        onToggle({ direction }) {
-          // to reverse the easing
-          gsap.to(navbarTl, { duration: 1.5, progress: direction === 1 ? 1 : 0, ease: 'expo.out' })
-        },
-      })
-    }
+    if (!navBtnLo$) return
+    const navbarTl = gsap.to(navBtnLo$, {
+      // gridTemplateColumns: 'auto 1fr',
+      width: 'auto',
+      opacity: 1,
+      // yPercent: 10,
+      ease: 'linear',
+      paused: true,
+    })
+    ScrollTrigger.create({
+      trigger: 'body',
+      start: vh(100) + ' top',
+      onToggle({ direction }) {
+        // to reverse the easing
+        gsap.to(navbarTl, { duration: 1.5, progress: direction === 1 ? 1 : 0, ease: 'expo.out' })
+      },
+    })
   })
 
   function momentInit() {
@@ -121,7 +123,7 @@ export default function Home() {
 
         // videojs.registerPlugin('hlsQualitySelector', hlsQualitySelector)
         player.ready(() => {
-          player.controls(true)
+          player.controls(true, { plugins: { Xr: { camera: { zoom: 2 } } } })
           // player.vr({ projection: '360' })
           player.hlsQualitySelector({
             displayCurrentQuality: true,
@@ -130,6 +132,9 @@ export default function Home() {
           // Function to zoom out (increase FOV)
           // const xrScene = player.xr().scene // Access the XR scene
           console.log(player.xr())
+          // const camera = new THREE.PerspectiveCamera(75, innerWidth / innerHeight, 0.1, 1000)
+          // camera.zoom = 1
+          // scene.add(camera)
           // console.log(player.xr().player)
 
           // const xrCamera = xrScene.camera
